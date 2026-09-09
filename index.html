@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindReset Space - กู้ใจวัยเรียนและคนทำงานจากภาวะ Burnout</title>
+  <meta name="description" content="พื้นที่ฟื้นฟูใจ สร้างความเข้าใจภาวะหมดไฟ (Burnout Syndrome) สำหรับวัยเรียนและวัยทำงาน พร้อมคำแนะนำและแชทบอทช่วยประเมินใจ">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: {
+              50: '#f4f7f4',
+              100: '#e5ece5',
+              200: '#cbdacb',
+              300: '#a5c0a6',
+              400: '#7ea480',
+              500: '#5c875e',
+              600: '#486b4a',
+              700: '#3a543b',
+              800: '#314432',
+              900: '#2a392b',
+            },
+            peach: {
+              50: '#fff7f2',
+              100: '#feeddb',
+              200: '#fdd3b8',
+              300: '#fbb38a',
+              400: '#f88c58',
+              500: '#f2682b',
+            },
+            cream: {
+              50: '#fdfcf9',
+              100: '#fbf8f1',
+              200: '#f6f0e2',
+            }
+          },
+          fontFamily: {
+            sans: ['Prompt', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts: Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      background-color: #fbf8f1;
+      color: #2d3748;
+    }
+    .glass-nav {
+      background: rgba(251, 248, 241, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px -12px rgba(92, 135, 94, 0.22);
+    }
+    .img-zoom {
+      transition: transform 0.5s ease;
+    }
+    .group:hover .img-zoom {
+      transform: scale(1.05);
+    }
+    .badge-pulse {
+      box-shadow: 0 0 0 0 rgba(92, 135, 94, 0.4);
+      animation: pulse-ring 2s infinite;
+    }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(92, 135, 94, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(92, 135, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(92, 135, 94, 0); }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-sage-200 selection:text-sage-900">
+
+  <!-- ==================== 1. NAVBAR ==================== -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-sage-100/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- โลโก้ & ชื่อโครงการ -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sage-600 to-sage-400 flex items-center justify-center text-white shadow-md shadow-sage-600/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-seedling text-xl"></i>
+        </div>
+        <div>
+          <span class="text-xl font-bold text-sage-900 tracking-tight block leading-tight">MindReset Space</span>
+          <span class="text-xs text-sage-600 font-medium">กู้ใจวัยเรียน & คนทำงาน</span>
+        </div>
+      </a>
+
+      <!-- เมนู & ปุ่มสำคัญฝั่งขวา -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#facts" class="text-sm font-medium text-gray-600 hover:text-sage-700 px-3 py-2 transition-colors">สัญญาณเตือน</a>
+        <a href="#tips" class="text-sm font-medium text-gray-600 hover:text-sage-700 px-3 py-2 transition-colors">วิธีฟื้นฟู</a>
+        <a href="#gallery" class="text-sm font-medium text-gray-600 hover:text-sage-700 px-3 py-2 transition-colors">มุมพักใจ</a>
+        <a href="#video" class="text-sm font-medium text-gray-600 hover:text-sage-700 px-3 py-2 transition-colors">วิดีโอ</a>
+
+        <!-- [จุดที่ต้องเปลี่ยนลิงก์: AI PROCESS LOG (GOOGLE DOCS)] -->
+        <a href="https://docs.google.com" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-sage-800 border-2 border-sage-600/40 rounded-xl hover:bg-sage-100/60 hover:border-sage-600 transition-all">
+          <i class="fa-regular fa-file-lines text-sage-600"></i>
+          AI Process Log
+        </a>
+
+        <!-- [จุดที่ต้องเปลี่ยนลิงก์: GEM CHATBOT] -->
+        <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-sage-600 to-sage-500 rounded-xl shadow-md shadow-sage-600/25 hover:from-sage-700 hover:to-sage-600 hover:shadow-lg hover:shadow-sage-600/35 transition-all transform active:scale-95">
+          <i class="fa-solid fa-comment-medical text-peach-200"></i>
+          คุยกับพี่หมอใจดี (Gem)
+        </a>
+      </div>
+
+      <!-- ปุ่ม Mobile Menu Hamburger -->
+      <button id="mobileMenuBtn" aria-label="เปิดเมนู" class="md:hidden p-2.5 rounded-xl text-sage-800 hover:bg-sage-100 transition-colors">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-sage-100 px-4 pt-3 pb-6 space-y-3 bg-cream-100 shadow-xl">
+      <a href="#facts" class="block text-base font-medium text-gray-700 hover:text-sage-800 py-1">สัญญาณเตือน</a>
+      <a href="#tips" class="block text-base font-medium text-gray-700 hover:text-sage-800 py-1">วิธีฟื้นฟู</a>
+      <a href="#gallery" class="block text-base font-medium text-gray-700 hover:text-sage-800 py-1">มุมพักใจ</a>
+      <a href="#video" class="block text-base font-medium text-gray-700 hover:text-sage-800 py-1">วิดีโอเข้าใจ Burnout</a>
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="https://docs.google.com" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center justify-center gap-2 py-2.5 text-sm font-semibold text-sage-800 border-2 border-sage-600/50 rounded-xl bg-white/70">
+          <i class="fa-regular fa-file-lines"></i> AI Process Log
+        </a>
+        <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center justify-center gap-2 py-2.5 text-sm font-semibold text-white bg-sage-600 rounded-xl shadow">
+          <i class="fa-solid fa-comment-medical text-peach-200"></i> คุยกับพี่หมอใจดี (Gem Chatbot)
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==================== 2. HERO SECTION ==================== -->
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28">
+    <!-- แสงประดับพื้นหลัง -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] pointer-events-none -z-10 flex justify-between opacity-60">
+      <div class="w-96 h-96 rounded-full bg-sage-200/60 filter blur-3xl"></div>
+      <div class="w-96 h-96 rounded-full bg-peach-200/60 filter blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- ข้อความฝั่งซ้าย -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold border border-sage-200 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-sage-500 badge-pulse"></span>
+            พื้นที่ปลอดภัยและฟื้นฟูพลังชีวิต
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
+            หมดไฟ... หรือแค่ใจ<br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-sage-600 via-sage-700 to-peach-400">
+              เหนื่อยล้าเกินไป?
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            การหยุดพักไม่ได้แปลว่าคุณยอมแพ้ หากวันนี้รู้สึกหนักอึ้ง MindReset Space พร้อมอยู่ข้างๆ ช่วยคุณเช็กสัญญาณภาวะ Burnout คืนสมดุลชีวิตทีละก้าว พร้อมประเมินใจฟรีกับ AI
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
+            <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer" 
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-semibold text-white bg-sage-600 hover:bg-sage-700 rounded-2xl shadow-lg shadow-sage-600/30 transition transform hover:-translate-y-0.5">
+              <i class="fa-solid fa-heart-pulse text-peach-200"></i>
+              ประเมินใจกับพี่หมอ Gem
+            </a>
+            
+            <a href="#facts" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-medium text-gray-700 bg-white/90 hover:bg-white border border-gray-200/80 rounded-2xl transition shadow-sm">
+              <i class="fa-solid fa-compass text-sage-600"></i>
+              สำรวจสัญญาณเตือน
+            </a>
+          </div>
+
+          <!-- Social Proof & Quick Stats -->
+          <div class="pt-6 border-t border-sage-100 flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
+            <!-- Mini User Avatars -->
+            <div class="flex items-center gap-3">
+              <div class="flex -space-x-2 overflow-hidden">
+                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="User 1">
+                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="User 2">
+                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="User 3">
+              </div>
+              <div class="text-left text-xs">
+                <p class="font-bold text-gray-800">1,200+ คน</p>
+                <p class="text-gray-500">เข้ามารีเซ็ตใจสัปดาห์นี้</p>
+              </div>
+            </div>
+
+            <div class="h-8 w-px bg-sage-200 hidden sm:block"></div>
+
+            <div class="flex items-center gap-4 text-xs text-gray-600">
+              <div>
+                <span class="font-bold text-peach-500 text-sm block">20 นาที</span>
+                <span>ตัดขาดจอคืนสมดุล</span>
+              </div>
+              <div>
+                <span class="font-bold text-sage-700 text-sm block">1323</span>
+                <span>สายด่วนสุขภาพจิตฟรี</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- รูปภาพฝั่งขวา: Visual Collage -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Glow backdrop -->
+            <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-sage-300 to-peach-200 opacity-50 filter blur-xl -z-10"></div>
+            
+            <div class="bg-white/95 p-3 rounded-3xl shadow-xl border border-white space-y-3">
+              <!-- Main Hero Image -->
+              <div class="relative overflow-hidden rounded-2xl group">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80" 
+                     alt="หญิงสาวกำลังนั่งสมาธิและพักผ่อนท่ามกลางธรรมชาติอันเงียบสงบ" 
+                     class="w-full h-80 sm:h-88 object-cover rounded-2xl img-zoom">
+                
+                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-sage-800 shadow-sm border border-white/60">
+                  <i class="fa-solid fa-leaf text-sage-600 mr-1"></i> ปล่อยวาง & คืนพลัง
+                </div>
+              </div>
+              
+              <!-- Two Mini Photo Thumbnails under Main Image -->
+              <div class="grid grid-cols-2 gap-2.5">
+                <div class="relative overflow-hidden rounded-xl group h-24">
+                  <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=400&q=80" 
+                       alt="โยคะเพื่อผ่อนคลายกล้ามเนื้อ" 
+                       class="w-full h-full object-cover img-zoom">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-2">
+                    <span class="text-white text-[11px] font-medium leading-none">โยคะคลายเส้น</span>
+                  </div>
+                </div>
+
+                <div class="relative overflow-hidden rounded-xl group h-24">
+                  <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=400&q=80" 
+                       alt="จิบชาอุ่นๆ อ่านหนังสือช้าๆ" 
+                       class="w-full h-full object-cover img-zoom">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-2">
+                    <span class="text-white text-[11px] font-medium leading-none">จิบชาอุ่นพักสายตา</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mini Floating Card -->
+              <div class="p-3 bg-cream-50 rounded-xl border border-sage-100 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-mug-hot"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-semibold text-gray-800">ช่วงเวลาผ่อนคลาย</h4>
+                  <p class="text-[11px] text-gray-500">หายใจเข้าลึกๆ ยิ้มให้ตัวเอง แล้วเริ่มใหม่อย่างอ่อนโยน</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 3. SECTION เนื้อหาความรู้ (FACTS & TIPS) ==================== -->
+  <section id="facts" class="py-16 lg:py-24 bg-white/80 border-y border-sage-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      
+      <!-- ส่วนที่ 3.1: สัญญาณเตือนภาวะหมดไฟ (3 การ์ดพร้อมรูปภาพ) -->
+      <div>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold tracking-wider text-peach-500 uppercase">Self-Check Signs</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">3 สัญญาณเตือน... ใจกำลังร้องขอความช่วยเหลือ</h2>
+          <p class="text-sm text-gray-600 mt-2">เช็กอาการเบื้องต้นว่าความเครียดของคุณข้ามเส้นเข้าสู่ภาวะ Burnout แล้วหรือไม่</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          
+          <!-- Card 1: ร่างกายหมดแรง -->
+          <div class="bg-cream-50/90 border border-sage-100 rounded-3xl overflow-hidden card-hover shadow-sm flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?auto=format&fit=crop&w=700&q=80" 
+                   alt="คนทำงานหมดแรงนอนฟุบบนโต๊ะทำงาน" 
+                   class="w-full h-full object-cover img-zoom">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-peach-500 shadow-sm">
+                สัญญาณที่ 1
+              </div>
+              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-peach-100/90 text-peach-500 flex items-center justify-center text-lg backdrop-blur-sm shadow">
+                <i class="fa-solid fa-battery-quarter"></i>
+              </div>
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">ร่างกายหมดแรงเรื้อรัง</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  นอนเท่าไหร่ก็ไม่พอ ตื่นมายังเพลีย ปวดศีรษะ ปวดเมื่อยตามตัวโดยไม่มีสาเหตุชัดเจน ภูมิคุ้มกันต่ำลง ป่วยบ่อยกว่าปกติ
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-sage-100 flex items-center gap-2 text-xs text-sage-700">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>ควรตรวจคุณภาพการนอนหลับ & พักผ่อนทันที</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: อารมณ์เฉยชา -->
+          <div class="bg-cream-50/90 border border-sage-100 rounded-3xl overflow-hidden card-hover shadow-sm flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=700&q=80" 
+                   alt="มองเหม่อออกไปนอกหน้าต่างด้วยความรู้สึกว่างเปล่า" 
+                   class="w-full h-full object-cover img-zoom">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-sage-700 shadow-sm">
+                สัญญาณที่ 2
+              </div>
+              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-sage-100/90 text-sage-600 flex items-center justify-center text-lg backdrop-blur-sm shadow">
+                <i class="fa-solid fa-face-meh-blank"></i>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">อารมณ์เฉยชาและแปลกแยก</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  เริ่มมองงานหรือเพื่อนร่วมงานในแง่ลบ ขาดความกระตือรือร้น รู้สึกว่าอะไรก็ไร้ความหมาย แยกตัวออกจากคนรอบข้างอย่างเงียบๆ
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-sage-100 flex items-center gap-2 text-xs text-sage-700">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>สัญญาณภาวะ Depersonalization ทางใจ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: งานสะดุด -->
+          <div class="bg-cream-50/90 border border-sage-100 rounded-3xl overflow-hidden card-hover shadow-sm flex flex-col group">
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=700&q=80" 
+                   alt="งานท่วมหัว โต๊ะทำงานเต็มไปด้วยเอกสารและโน้ตเตือนใจ" 
+                   class="w-full h-full object-cover img-zoom">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-peach-500 shadow-sm">
+                สัญญาณที่ 3
+              </div>
+              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-peach-100/90 text-peach-500 flex items-center justify-center text-lg backdrop-blur-sm shadow">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">ประสิทธิภาพงานสะดุด</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  สมาธิสั้นลง ตัดสินใจช้า ผลัดวันประกันพรุ่ง ทำงานผิดพลาดบ่อยขึ้น และเริ่มสูญเสียความมั่นใจในความสามารถของตัวเอง
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-sage-100 flex items-center gap-2 text-xs text-sage-700">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>ไม่เท่ากับขี้เกียจ แต่คือสมองโอเวอร์โหลด</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ส่วนที่ 3.2: วิธีปฐมพยาบาลใจ (3 การ์ดพร้อมรูปภาพ) -->
+      <div id="tips">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold tracking-wider text-sage-600 uppercase">First-Aid Mind Tips</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">3 วิธีปฐมพยาบาลใจ เริ่มต้นได้ตั้งแต่วันนี้</h2>
+          <p class="text-sm text-gray-600 mt-2">ขั้นตอนเรียบง่ายแต่ทรงพลังเพื่อดึงสมดุลและฟื้นฟูระดับพลังงานของคุณ</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <!-- Tip 1: กฎ 20 นาทีตัดขาดจอ -->
+          <div class="bg-white rounded-3xl overflow-hidden border border-sage-200/70 card-hover shadow-sm flex flex-col group">
+            <div class="relative h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=700&q=80" 
+                   alt="เดินเล่นท่ามกลางต้นไม้ตัดขาดจากหน้าจอมือถือ" 
+                   class="w-full h-full object-cover img-zoom">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-sage-700 shadow-sm">
+                ขั้นตอนที่ 1
+              </div>
+              <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-sage-50 text-sage-700 flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">กฎ 20 นาทีตัดขาดหน้าจอ</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  หลังเลิกงานหรือก่อนนอน วางสมาร์ตโฟนและคอมพิวเตอร์อย่างน้อย 20 นาที ให้สมองได้พักจากการประมวลผลข้อมูลต่อเนื่องและแสงสีฟ้า
+                </p>
+              </div>
+              <div class="mt-5 bg-sage-50 rounded-xl p-3 text-xs text-sage-800 font-medium">
+                💡 ทริก: ฟังเสียงธรรมชาติ ชงชาอุ่นๆ หรือมองต้นไม้สีเขียว
+              </div>
+            </div>
+          </div>
+
+          <!-- Tip 2: การนอนหลับที่มีคุณภาพ -->
+          <div class="bg-white rounded-3xl overflow-hidden border border-sage-200/70 card-hover shadow-sm flex flex-col group">
+            <div class="relative h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=700&q=80" 
+                   alt="เตียงนอนอบอุ่นนุ่มสบาย เหมาะแก่การนอนหลับลึก" 
+                   class="w-full h-full object-cover img-zoom">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-peach-500 shadow-sm">
+                ขั้นตอนที่ 2
+              </div>
+              <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-peach-50 text-peach-500 flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-moon"></i>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">การนอนหลับที่มีคุณภาพ</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  เข้านอนและตื่นเวลาเดิม ปรับอุณหภูมิห้องให้เย็นสบาย ปิดไฟให้มืดสนิท เพื่อให้ฮอร์โมนเมลาโทนินทำงานได้อย่างเต็มประสิทธิภาพ
+                </p>
+              </div>
+              <div class="mt-5 bg-peach-50 rounded-xl p-3 text-xs text-peach-700 font-medium">
+                🌙 เป้าหมาย: พักผ่อน 7-8 ชั่วโมงอย่างต่อเนื่อง ไม่เล่นมือถือบนเตียง
+              </div>
+            </div>
+          </div>
+
+          <!-- Tip 3: ปฏิเสธให้เป็น -->
+          <div class="bg-white rounded-3xl overflow-hidden border border-sage-200/70 card-hover shadow-sm flex flex-col group">
+            <div class="relative h-44 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=700&q=80" 
+                   alt="หญิงสาวยืนสูดอากาศบริสุทธิ์อย่างมั่นใจและผ่อนคลาย" 
+                   class="w-full h-full object-cover img-zoom">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-sage-700 shadow-sm">
+                ขั้นตอนที่ 3
+              </div>
+              <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-sage-50 text-sage-700 flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">ปฏิเสธให้เป็น (Saying No)</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  การตั้งขอบเขต (Boundaries) ไม่ใช่ความเห็นแก่ตัว แต่คือการปกป้องสุขภาพจิต กล้าพูดปฏิเสธงานหรือคำขอที่เกินขีดความสามารถของตน
+                </p>
+              </div>
+              <div class="mt-5 bg-sage-50 rounded-xl p-3 text-xs text-sage-800 font-medium">
+                🛡️ จำไว้: การ say NO ต่องานเกินตัว คือ say YES ให้ชีวิตตนเอง
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== NEW: MINDFUL MOMENTS PHOTO GALLERY ==================== -->
+  <section id="gallery" class="py-16 lg:py-20 bg-cream-100/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold tracking-wider text-sage-600 uppercase">Mindful Healing Moments</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">มุมพักใจประจำวัน (Visual Therapy)</h2>
+          <p class="text-sm text-gray-600 mt-1">หยุดสายตาสักนิด ให้ภาพธรรมชาติและความอบอุ่นช่วยปลอบประโลมใจคุณ</p>
+        </div>
+        <div class="hidden sm:flex items-center gap-2 text-xs text-sage-700 font-medium bg-sage-100/70 px-3.5 py-1.5 rounded-full">
+          <i class="fa-regular fa-compass"></i> สำรวจวิธีฮีลใจแบบเรียบง่าย
+        </div>
+      </div>
+
+      <!-- Bento Visual Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Gallery Item 1 -->
+        <div class="relative rounded-3xl overflow-hidden group shadow-md h-64">
+          <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" 
+               alt="แสงแดดอบอุ่นส่องผ่านต้นไม้ในป่าเขียวขจี" 
+               class="w-full h-full object-cover img-zoom">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
+            <span class="text-peach-200 text-xs font-semibold">Forest Bathing</span>
+            <h4 class="text-white text-base font-bold">อาบป่า สูดกลิ่นดิน</h4>
+            <p class="text-gray-200 text-xs mt-1">การอยู่ใกล้ต้นไม้ช่วยลดระดับฮอร์โมนคอร์ติซอลได้อย่างมีนัยสำคัญ</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 2 -->
+        <div class="relative rounded-3xl overflow-hidden group shadow-md h-64">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" 
+               alt="สมุดบันทึกและแก้วกาแฟอุ่นๆ บนโต๊ะไม้" 
+               class="w-full h-full object-cover img-zoom">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
+            <span class="text-peach-200 text-xs font-semibold">Brain Dump</span>
+            <h4 class="text-white text-base font-bold">เขียนระบายความกังวล</h4>
+            <p class="text-gray-200 text-xs mt-1">เขียนสิ่งที่ค้างคาในหัวลงกระดาษ เพื่อปลดล็อกพื้นที่ในสมอง</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div class="relative rounded-3xl overflow-hidden group shadow-md h-64">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" 
+               alt="คลื่นทะเลกระทบหาดทรายขาวสงบเงียบ" 
+               class="w-full h-full object-cover img-zoom">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
+            <span class="text-peach-200 text-xs font-semibold">Wave Rhythm</span>
+            <h4 class="text-white text-base font-bold">ฟังจังหวะคลื่นทะเล</h4>
+            <p class="text-gray-200 text-xs mt-1">เสียงน้ำซัดสร้างคลื่นสมองระดับ Alpha ช่วยให้จิตใจนิ่งสงบ</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 4 -->
+        <div class="relative rounded-3xl overflow-hidden group shadow-md h-64">
+          <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=600&q=80" 
+               alt="โต๊ะอ่านหนังสือพร้อมแก้วชาร้อนยามเย็น" 
+               class="w-full h-full object-cover img-zoom">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
+            <span class="text-peach-200 text-xs font-semibold">Slow Living</span>
+            <h4 class="text-white text-base font-bold">ทำทีละอย่างแบบช้าลง</h4>
+            <p class="text-gray-200 text-xs mt-1">ลดการทำงานแบบ Multitasking เพื่อให้ใจได้จดจ่ออย่างสบายๆ</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 4. SECTION ฝังคลิปวิดีโอ (VIDEO SECTION) ==================== -->
+  <section id="video" class="py-16 lg:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-peach-100 text-peach-600 text-xs font-semibold mb-2">
+          <i class="fa-solid fa-play"></i> Video Spotlight
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">คลิปสั้น 20 วินาที: ไขความจริง Burnout vs ขี้เกียจ</h2>
+        <p class="text-sm text-gray-600 mt-2">คลิปสื่อการเรียนรู้แบบสั้น (สร้างสรรค์ด้วย CapCut & Canva) อธิบายความแตกต่างให้เข้าใจได้ในพริบตา</p>
+      </div>
+
+      <!-- กรอบฝังวิดีโอ Responsive 16:9 Aspect Ratio -->
+      <div class="bg-white p-3 sm:p-4 rounded-3xl shadow-xl border border-sage-200/80">
+        <div class="relative w-full overflow-hidden rounded-2xl bg-black" style="padding-top: 56.25%;">
+          
+          <!-- [จุดที่ต้องเปลี่ยนลิงก์: YOUTUBE EMBED IFRAME] -->
+          <iframe 
+            class="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube-nocookie.com/embed/lpW73K0lSG8?rel=0" 
+            title="คลิปสั้น 20 วินาที: ไขความจริง Burnout vs ขี้เกียจ" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="mt-4 px-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-gray-500">
+          <div class="flex items-center gap-2">
+            <i class="fa-brands fa-youtube text-red-500 text-base"></i>
+            <span>วิดีโอความรู้ประกอบโครงการ MindReset Space</span>
+            <a href="https://youtu.be/lpW73K0lSG8" target="_blank" rel="noopener noreferrer" class="text-sage-700 underline hover:text-sage-900 ml-2">
+              (เปิดดูบน YouTube โดยตรง)
+            </a>
+          </div>
+          <span class="inline-block bg-sage-100 text-sage-800 px-2.5 py-1 rounded-md font-medium">
+            ความยาวคลิป: ประมาณ 20 - 30 วินาที
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 5. SECTION ช่องทางช่วยเหลือ & แชทบอท ==================== -->
+  <section class="py-16 lg:py-20 bg-gradient-to-b from-transparent via-sage-100/50 to-sage-100/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- กล่อง Callout สีเด่น ชวนคุย AI พี่หมอใจดี & สายด่วนสุขภาพจิต -->
+      <div class="relative bg-gradient-to-br from-sage-700 via-sage-800 to-sage-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl overflow-hidden">
+        
+        <!-- แสงประดับพื้นหลัง -->
+        <div class="absolute -right-10 -bottom-10 w-72 h-72 rounded-full bg-peach-400/20 filter blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-10 -top-10 w-72 h-72 rounded-full bg-sage-400/20 filter blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 grid md:grid-cols-12 gap-8 items-center">
+          
+          <!-- ข้อความ & ปุ่ม Gem Chatbot -->
+          <div class="md:col-span-7 space-y-4 text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-3">
+              <!-- Avatar พี่หมอใจดี -->
+              <div class="relative">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" 
+                     alt="พี่หมอใจดี AI Companion" 
+                     class="w-12 h-12 rounded-full object-cover ring-2 ring-peach-200 shadow-md">
+                <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-400 border-2 border-sage-800 rounded-full"></span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-peach-200 text-xs font-semibold backdrop-blur-sm border border-white/15">
+                <i class="fa-solid fa-sparkles"></i> AI Mental Companion
+              </span>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
+              รู้สึกอึดอัดใจ?<br>
+              ลองคุยกับ <span class="text-peach-200">"พี่หมอใจดี"</span> ได้เลย
+            </h2>
+            <p class="text-sage-100 text-sm sm:text-base leading-relaxed">
+              พี่หมอใจดีเป็น AI Gem Chatbot ที่ถูกปรับแต่งเพื่อรับฟังอย่างอ่อนโยน ช่วยประเมินความเครียดเบื้องต้น และแนะนำวิธีผ่อนคลายเฉพาะบุคคล ปลอดภัย ไม่ตัดสินคุณ
+            </p>
+
+            <div class="pt-2">
+              <!-- [จุดที่ต้องเปลี่ยนลิงก์: GEM CHATBOT] -->
+              <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-3 px-7 py-3.5 bg-peach-400 hover:bg-peach-300 text-gray-950 font-bold rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 active:scale-95 text-base">
+                <i class="fa-solid fa-comments text-lg"></i>
+                เริ่มพูดคุยกับพี่หมอใจดีทันที
+              </a>
+            </div>
+          </div>
+
+          <!-- กล่องสายด่วน 1323 -->
+          <div class="md:col-span-5">
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center space-y-3">
+              <div class="w-12 h-12 rounded-full bg-peach-200/20 text-peach-200 flex items-center justify-center mx-auto text-xl">
+                <i class="fa-solid fa-phone-volume"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">สายด่วนสุขภาพจิต กรมสุขภาพจิต</h3>
+              <p class="text-xs text-sage-100">หากคุณรู้สึกไม่ไหว หรือต้องการพูดคุยกับผู้เชี่ยวชาญ โทรได้ฟรีตลอด 24 ชั่วโมง</p>
+              
+              <div class="pt-2">
+                <a href="tel:1323" class="inline-block w-full py-3 bg-white text-sage-900 hover:bg-sage-50 font-bold text-xl rounded-xl transition shadow">
+                  📞 โทร 1323 (ฟรี)
+                </a>
+              </div>
+              <span class="text-[11px] text-sage-200 block">ให้บริการตลอด 24 ชั่วโมง โดยบุคลากรผู้เชี่ยวชาญ</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 6. FOOTER ==================== -->
+  <footer class="bg-sage-900 text-sage-100 border-t border-sage-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-sage-800 text-center md:text-left">
+        
+        <!-- Logo & Mission -->
+        <div>
+          <div class="flex items-center justify-center md:justify-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-sage-700 flex items-center justify-center text-white">
+              <i class="fa-solid fa-seedling text-sm"></i>
+            </div>
+            <span class="text-lg font-bold text-white tracking-tight">MindReset Space</span>
+          </div>
+          <p class="text-xs text-sage-300 mt-2 max-w-md">
+            จัดทำขึ้นเพื่อการศึกษาโดยใช้เครื่องมือ Generative AI เพื่อเผยแพร่ความรู้เรื่อง Burnout Syndrome ในกลุ่มวัยเรียนและวัยทำงาน
+          </p>
+        </div>
+
+        <!-- [จุดที่ต้องเปลี่ยนลิงก์: AI PROCESS LOG (GOOGLE DOCS) - ปุ่มซ้ำใน FOOTER] -->
+        <div>
+          <a href="https://docs.google.com" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white border border-sage-600 rounded-xl hover:bg-sage-800 hover:border-sage-400 transition">
+            <i class="fa-regular fa-file-lines text-peach-200"></i>
+            AI Process Log (Google Docs)
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Disclaimer -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-sage-400 text-center">
+        <p>© 2026 MindReset Space. จัดทำขึ้นเพื่อการศึกษาโดยใช้เครื่องมือ Generative AI</p>
+        <p class="text-sage-400">เนื้อหานี้ไม่ใช่คำวินิจฉัยทางการแพทย์ หากมีอาการรุนแรงโปรดพบแพทย์เฉพาะทาง</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script สำหรับ Mobile Menu Toggle -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
