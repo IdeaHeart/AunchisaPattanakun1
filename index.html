@@ -4,100 +4,192 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MindReset Space - กู้ใจวัยเรียนและคนทำงานจากภาวะ Burnout</title>
-  <meta name="description" content="พื้นที่ฟื้นฟูใจ สร้างความเข้าใจภาวะหมดไฟ (Burnout Syndrome) สำหรับวัยเรียนและวัยทำงาน พร้อมคำแนะนำและแชทบอทช่วยประเมินใจ">
+  <meta name="description" content="พื้นที่ฟื้นฟูใจ สร้างความเข้าใจภาวะหมดไฟ (Burnout Syndrome) สำหรับวัยเรียนและวัยทำงาน พร้อมคำแนะนำ เครื่องมือฝึกหายใจ และแชทบอทช่วยประเมินใจ">
   
-  <!-- Website Favicon (Icon แท็บเบราว์เซอร์) -->
+  <!-- Website Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='p' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23f9a8bd'/><stop offset='100%25' stop-color='%23dd6b89'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23p)'/><path fill='%23ffffff' d='M50 78c0-18 8-32 24-38-6 18-18 28-24 38zm0 0c0-18-8-32-24-38 6 18 18 28 24 38zm0-24c-12-16 0-32 16-32 0 16-16 32-16 32zm0 0c12-16 0-32-16-32 0 16 16 32 16 32z'/></svg>">
   
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
+            cream: {
+              50: '#fffbfb',
+              100: '#fff9fa',
+              200: '#fff0f4',
+              300: '#fde6ed',
+              400: '#fad3df',
+            },
+            rose: {
+              50: '#fff5f7',
+              100: '#fde2e9',
+              200: '#fcc8d5',
+              300: '#f9a8bd',
+              400: '#f085a1',
+              500: '#dd6b89',
+              600: '#c5526f',
+              700: '#a33e57',
+              800: '#843246',
+              900: '#541d2a',
+            },
             sage: {
-              50: '#fff8fa',
-              100: '#fff0f4',
-              200: '#fde2e9',
-              300: '#fcc8d5',
-              400: '#f9a8bd',
-              500: '#f085a1',
-              600: '#dd6b89',
-              700: '#be4d6b',
-              800: '#9e3b55',
-              900: '#682337',
+              50: '#fff5f7',
+              100: '#fde2e9',
+              200: '#fcc8d5',
+              300: '#f9a8bd',
+              400: '#f085a1',
+              500: '#dd6b89',
+              600: '#c5526f',
+              700: '#a33e57',
+              800: '#843246',
+              900: '#541d2a',
             },
             peach: {
               50: '#fffaf7',
-              100: '#fff2eb',
-              200: '#ffe3d6',
-              300: '#ffccb8',
+              100: '#ffe3d6',
+              200: '#ffd0bc',
+              300: '#ffbca2',
               400: '#fca085',
               500: '#f28568',
+              600: '#dd6847',
+              700: '#bd4f31',
             },
-            cream: {
-              50: '#ffffff',
-              100: '#fff9fa',
-              200: '#fff0f3',
+            slate: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a',
             }
           },
+          boxShadow: {
+            'soft-rose': '0 10px 30px -5px rgba(221, 107, 137, 0.12), 0 4px 12px -2px rgba(221, 107, 137, 0.08)',
+            'soft-rose-lg': '0 20px 42px -10px rgba(221, 107, 137, 0.16), 0 8px 20px -4px rgba(221, 107, 137, 0.08)',
+            'soft-rose-xl': '0 25px 50px -12px rgba(221, 107, 137, 0.22)',
+            'soft-peach': '0 10px 30px -5px rgba(252, 160, 133, 0.14), 0 4px 12px -2px rgba(252, 160, 133, 0.08)',
+            'soft-peach-lg': '0 20px 42px -10px rgba(252, 160, 133, 0.20)',
+            'soft-glow': '0 0 35px 0 rgba(221, 107, 137, 0.22)',
+          },
           fontFamily: {
-            sans: ['Prompt', 'sans-serif'],
+            sans: ['Outfit', 'Prompt', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: {
+            '2xl': '1rem',
+            '3xl': '1.5rem',
+            '4xl': '2rem',
           }
         }
       }
     }
   </script>
   
-  <!-- Google Fonts: Prompt -->
+  <!-- Google Fonts: Outfit (English/Modern Sans) & Prompt (Thai Harmonious Rounded) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
+    :root {
+      --bg-cream: #fff9fa;
+      --bg-blush: #fff0f4;
+      --rose-primary: #dd6b89;
+      --peach-accent: #fca085;
+      --text-slate-main: #334155;
+      --text-slate-muted: #475569;
+    }
     body {
-      font-family: 'Prompt', sans-serif;
+      font-family: 'Outfit', 'Prompt', sans-serif;
       background-color: #fff9fa;
+      background-image: 
+        radial-gradient(circle at 12% 15%, rgba(253, 226, 233, 0.45) 0%, transparent 40%),
+        radial-gradient(circle at 88% 40%, rgba(255, 227, 214, 0.42) 0%, transparent 45%),
+        radial-gradient(circle at 25% 78%, rgba(253, 226, 233, 0.38) 0%, transparent 50%);
       color: #334155;
       overflow-x: hidden;
+      selection-background-color: #fde2e9;
+      selection-color: #541d2a;
     }
+    
+    /* Soft Glassmorphism */
     .glass-nav {
-      background: rgba(255, 249, 250, 0.92);
+      background: rgba(255, 249, 250, 0.84);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 25px -4px rgba(221, 107, 137, 0.08);
     }
+    .glass-card {
+      background: rgba(255, 252, 253, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 14px 35px -10px rgba(221, 107, 137, 0.10);
+    }
+    .glass-card-warm {
+      background: rgba(255, 250, 248, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 14px 35px -10px rgba(252, 160, 133, 0.12);
+    }
+
+    /* Cubic-bezier Hover Transitions */
     .card-hover {
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
     }
     .card-hover:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 22px 38px -12px rgba(221, 107, 137, 0.16);
+      transform: translateY(-7px) scale(1.008);
+      box-shadow: 0 24px 44px -10px rgba(221, 107, 137, 0.18);
+      border-color: rgba(240, 133, 161, 0.45);
     }
+    .card-hover-peach {
+      transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+    .card-hover-peach:hover {
+      transform: translateY(-7px) scale(1.008);
+      box-shadow: 0 24px 44px -10px rgba(252, 160, 133, 0.22);
+      border-color: rgba(252, 160, 133, 0.50);
+    }
+
+    /* Zoom for visual photos */
     .img-zoom {
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .group:hover .img-zoom {
-      transform: scale(1.08);
+      transform: scale(1.07);
     }
+
+    /* Soft Pulse Badge */
     .badge-pulse {
-      box-shadow: 0 0 0 0 rgba(221, 107, 137, 0.35);
-      animation: pulse-ring 2s infinite;
+      box-shadow: 0 0 0 0 rgba(221, 107, 137, 0.45);
+      animation: pulse-ring 2.4s infinite;
     }
     @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(221, 107, 137, 0.4); }
-      70% { box-shadow: 0 0 0 12px rgba(221, 107, 137, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(221, 107, 137, 0.45); }
+      70% { box-shadow: 0 0 0 10px rgba(221, 107, 137, 0); }
       100% { box-shadow: 0 0 0 0 rgba(221, 107, 137, 0); }
     }
     
-    /* Floating & Ambient Motion */
+    /* Gentle Wellness Floating & Ambient Motion */
     .float-slow {
-      animation: float-slow 6s ease-in-out infinite;
+      animation: float-slow 7s ease-in-out infinite;
     }
     .float-reverse {
-      animation: float-reverse 8s ease-in-out infinite;
+      animation: float-reverse 9s ease-in-out infinite;
+    }
+    .float-gentle {
+      animation: float-gentle 5s ease-in-out infinite;
     }
     @keyframes float-slow {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -106,6 +198,10 @@
     @keyframes float-reverse {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(14px) rotate(-1deg); }
+    }
+    @keyframes float-gentle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
     }
 
     /* Shimmer Glow on CTA */
@@ -120,18 +216,35 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(60deg, transparent, rgba(255,255,255,0.25), transparent);
+      background: linear-gradient(60deg, transparent, rgba(255,255,255,0.32), transparent);
       transform: rotate(30deg) translateX(-100%);
-      animation: shimmer 4s infinite;
+      animation: shimmer 4.5s infinite;
     }
     @keyframes shimmer {
       100% { transform: rotate(30deg) translateX(100%); }
     }
 
+    /* Breathing Circle Animation Classes */
+    .breathe-circle {
+      transition: all 4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .breathe-inhale {
+      transform: scale(1.35);
+      box-shadow: 0 0 50px 15px rgba(240, 133, 161, 0.35);
+    }
+    .breathe-hold {
+      transform: scale(1.35);
+      box-shadow: 0 0 60px 22px rgba(252, 160, 133, 0.40);
+    }
+    .breathe-exhale {
+      transform: scale(0.92);
+      box-shadow: 0 0 20px 0 rgba(221, 107, 137, 0.15);
+    }
+
     /* Scroll Reveal Animation */
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
+      transform: translateY(28px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
@@ -143,69 +256,109 @@
     .delay-200 { transition-delay: 200ms; }
     .delay-300 { transition-delay: 300ms; }
     .delay-400 { transition-delay: 400ms; }
+
+    /* Custom Range Slider Styling */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: #fde2e9;
+      height: 8px;
+      border-radius: 9999px;
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #dd6b89;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(221, 107, 137, 0.35);
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      background: #c5526f;
+    }
   </style>
 </head>
-<body class="antialiased selection:bg-sage-200 selection:text-sage-900 relative">
+<body class="antialiased selection:bg-rose-200 selection:text-rose-900 relative">
 
   <!-- Top Scroll Progress Bar -->
-  <div id="scrollProgress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-sage-500 via-peach-400 to-sage-600 z-[100] transition-all duration-75" style="width: 0%"></div>
+  <div id="scrollProgress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-rose-500 via-peach-400 to-rose-400 z-[100] transition-all duration-75" style="width: 0%"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-slate-800 text-rose-50 px-5 py-2.5 rounded-2xl shadow-soft-rose-lg text-sm font-medium opacity-0 pointer-events-none transition-all duration-300 transform translate-y-3 flex items-center gap-2.5 border border-rose-400/20">
+    <i class="fa-solid fa-circle-check text-peach-300"></i>
+    <span id="toastMsg">คัดลอกเบอร์สำเร็จ</span>
+  </div>
 
   <!-- ==================== 1. NAVBAR ==================== -->
-  <header class="sticky top-0 z-50 glass-nav border-b border-sage-100/80 transition-all">
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- โลโก้ & ชื่อโครงการ -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sage-600 to-sage-400 flex items-center justify-center text-white shadow-md shadow-sage-600/20 group-hover:scale-105 transition-transform">
-          <i class="fa-solid fa-seedling text-xl"></i>
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-500 via-rose-400 to-peach-300 flex items-center justify-center text-white shadow-soft-rose group-hover:scale-105 group-hover:rotate-2 transition-transform duration-300">
+          <i class="fa-solid fa-seedling text-lg"></i>
         </div>
         <div>
-          <span class="text-xl font-bold text-sage-900 tracking-tight block leading-tight">MindReset Space</span>
-          <span class="text-xs text-sage-600 font-medium">กู้ใจวัยเรียน & คนทำงาน</span>
+          <span class="text-xl font-bold text-slate-800 tracking-tight block leading-tight group-hover:text-rose-600 transition-colors">MindReset Space</span>
+          <span class="text-xs text-rose-600 font-medium">กู้ใจวัยเรียน & คนทำงาน</span>
         </div>
       </a>
 
       <!-- เมนู & ปุ่มสำคัญฝั่งขวา -->
-      <div class="hidden md:flex items-center gap-3">
-        <a href="#facts" class="text-sm font-medium text-gray-600 hover:text-sage-700 px-3 py-2 transition-colors">สัญญาณเตือน</a>
-        <a href="#tips" class="text-sm font-medium text-gray-600 hover:text-sage-700 px-3 py-2 transition-colors">วิธีฟื้นฟู</a>
-        <a href="#gallery" class="text-sm font-medium text-gray-600 hover:text-sage-700 px-3 py-2 transition-colors">มุมพักใจ</a>
-        <a href="#video" class="text-sm font-medium text-gray-600 hover:text-sage-700 px-3 py-2 transition-colors">วิดีโอ</a>
+      <div class="hidden md:flex items-center gap-2 lg:gap-3">
+        <a href="#facts" class="text-sm font-medium text-slate-600 hover:text-rose-600 px-3 py-2 rounded-xl hover:bg-rose-50/70 transition-all">สัญญาณเตือน</a>
+        <a href="#quiz" class="text-sm font-medium text-slate-600 hover:text-rose-600 px-3 py-2 rounded-xl hover:bg-rose-50/70 transition-all">เช็กความล้า</a>
+        <a href="#breathe" class="text-sm font-medium text-slate-600 hover:text-rose-600 px-3 py-2 rounded-xl hover:bg-rose-50/70 transition-all">ฝึกหายใจ</a>
+        <a href="#tips" class="text-sm font-medium text-slate-600 hover:text-rose-600 px-3 py-2 rounded-xl hover:bg-rose-50/70 transition-all">วิธีฟื้นฟู</a>
+        <a href="#gallery" class="text-sm font-medium text-slate-600 hover:text-rose-600 px-3 py-2 rounded-xl hover:bg-rose-50/70 transition-all">มุมพักใจ</a>
+        <a href="#video" class="text-sm font-medium text-slate-600 hover:text-rose-600 px-3 py-2 rounded-xl hover:bg-rose-50/70 transition-all">วิดีโอ</a>
+
+        <!-- Ambient Sound Toggle Button -->
+        <button id="ambientSoundBtn" aria-label="เปิด/ปิดเสียงคลื่นผ่อนคลาย" class="p-2.5 rounded-2xl text-slate-600 hover:text-rose-600 hover:bg-rose-50/80 transition-all border border-rose-200/50" title="เสียงคลื่นผ่อนคลาย (Ambient Audio)">
+          <i id="ambientSoundIcon" class="fa-solid fa-volume-xmark text-sm"></i>
+        </button>
 
         <!-- [จุดที่ต้องเปลี่ยนลิงก์: AI PROCESS LOG (GOOGLE DOCS)] -->
         <a href="https://docs.google.com/document/d/1VY4uLBC0PqrFElXsrxPspTIc2LgrVOFye1wCMXqYyqs/edit?usp=sharing" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-sage-800 border-2 border-sage-600/40 rounded-xl hover:bg-sage-100/60 hover:border-sage-600 transition-all hover:scale-105">
-          <i class="fa-regular fa-file-lines text-sage-600"></i>
+           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-rose-700 bg-white/70 border border-rose-200/80 rounded-2xl hover:bg-rose-100/60 hover:border-rose-300 transition-all hover:scale-105 shadow-sm">
+          <i class="fa-regular fa-file-lines text-rose-500"></i>
           AI Process Log
         </a>
 
         <!-- [จุดที่ต้องเปลี่ยนลิงก์: GEM CHATBOT] -->
         <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer" 
-           class="btn-glow inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-sage-600 to-sage-500 rounded-xl shadow-md shadow-sage-600/25 hover:from-sage-700 hover:to-sage-600 hover:shadow-lg hover:shadow-sage-600/35 transition-all transform active:scale-95 hover:-translate-y-0.5">
+           class="btn-glow inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-500 to-rose-400 hover:from-rose-600 hover:to-rose-500 rounded-2xl shadow-soft-rose hover:shadow-soft-rose-lg transition-all transform active:scale-95 hover:-translate-y-0.5">
           <i class="fa-solid fa-comment-medical text-peach-200"></i>
           คุยกับพี่หมอใจดี (Gem)
         </a>
       </div>
 
       <!-- ปุ่ม Mobile Menu Hamburger -->
-      <button id="mobileMenuBtn" aria-label="เปิดเมนู" class="md:hidden p-2.5 rounded-xl text-sage-800 hover:bg-sage-100 transition-colors">
+      <button id="mobileMenuBtn" aria-label="เปิดเมนู" class="md:hidden p-2.5 rounded-2xl text-slate-700 hover:bg-rose-100/60 transition-colors">
         <i class="fa-solid fa-bars text-xl"></i>
       </button>
     </div>
 
     <!-- Mobile Dropdown -->
-    <div id="mobileMenu" class="hidden md:hidden border-t border-sage-100 px-4 pt-3 pb-6 space-y-3 bg-cream-100 shadow-xl">
-      <a href="#facts" class="block text-base font-medium text-gray-700 hover:text-sage-800 py-1">สัญญาณเตือน</a>
-      <a href="#tips" class="block text-base font-medium text-gray-700 hover:text-sage-800 py-1">วิธีฟื้นฟู</a>
-      <a href="#gallery" class="block text-base font-medium text-gray-700 hover:text-sage-800 py-1">มุมพักใจ</a>
-      <a href="#video" class="block text-base font-medium text-gray-700 hover:text-sage-800 py-1">วิดีโอเข้าใจ Burnout</a>
-      <div class="pt-2 flex flex-col gap-2">
+    <div id="mobileMenu" class="hidden md:hidden border-t border-rose-100/70 px-4 pt-3 pb-6 space-y-2 bg-[#fff9fa]/95 backdrop-blur-md shadow-soft-rose-lg">
+      <a href="#facts" class="block text-base font-medium text-slate-700 hover:text-rose-600 py-1.5 px-3 rounded-xl hover:bg-rose-50">สัญญาณเตือน</a>
+      <a href="#quiz" class="block text-base font-medium text-slate-700 hover:text-rose-600 py-1.5 px-3 rounded-xl hover:bg-rose-50">เช็กความล้า 1 นาที</a>
+      <a href="#breathe" class="block text-base font-medium text-slate-700 hover:text-rose-600 py-1.5 px-3 rounded-xl hover:bg-rose-50">ฝึกหายใจคลายเครียด</a>
+      <a href="#tips" class="block text-base font-medium text-slate-700 hover:text-rose-600 py-1.5 px-3 rounded-xl hover:bg-rose-50">วิธีฟื้นฟู</a>
+      <a href="#gallery" class="block text-base font-medium text-slate-700 hover:text-rose-600 py-1.5 px-3 rounded-xl hover:bg-rose-50">มุมพักใจ</a>
+      <a href="#video" class="block text-base font-medium text-slate-700 hover:text-rose-600 py-1.5 px-3 rounded-xl hover:bg-rose-50">วิดีโอเข้าใจ Burnout</a>
+      <div class="pt-3 flex flex-col gap-2.5">
         <a href="https://docs.google.com/document/d/1VY4uLBC0PqrFElXsrxPspTIc2LgrVOFye1wCMXqYyqs/edit?usp=sharing" target="_blank" rel="noopener noreferrer" 
-           class="flex items-center justify-center gap-2 py-2.5 text-sm font-semibold text-sage-800 border-2 border-sage-600/50 rounded-xl bg-white/70">
-          <i class="fa-regular fa-file-lines"></i> AI Process Log
+           class="flex items-center justify-center gap-2 py-2.5 text-sm font-semibold text-rose-700 border border-rose-200 rounded-2xl bg-white/80 shadow-sm">
+          <i class="fa-regular fa-file-lines text-rose-500"></i> AI Process Log
         </a>
         <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer" 
-           class="flex items-center justify-center gap-2 py-2.5 text-sm font-semibold text-white bg-sage-600 rounded-xl shadow">
+           class="flex items-center justify-center gap-2 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 to-rose-400 rounded-2xl shadow-soft-rose">
           <i class="fa-solid fa-comment-medical text-peach-200"></i> คุยกับพี่หมอใจดี (Gem Chatbot)
         </a>
       </div>
@@ -215,10 +368,10 @@
 
   <!-- ==================== 2. HERO SECTION ==================== -->
   <section class="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28">
-    <!-- แสงประดับพื้นหลัง Floating Blobs -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] pointer-events-none -z-10 flex justify-between opacity-60">
-      <div class="w-96 h-96 rounded-full bg-sage-200/60 filter blur-3xl float-slow"></div>
-      <div class="w-96 h-96 rounded-full bg-peach-200/60 filter blur-3xl float-reverse"></div>
+    <!-- แสงประดับพื้นหลัง Floating Organic Blobs -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[560px] pointer-events-none -z-10 flex justify-between opacity-70">
+      <div class="w-96 h-96 rounded-full bg-rose-200/50 filter blur-3xl float-slow"></div>
+      <div class="w-96 h-96 rounded-full bg-peach-200/50 filter blur-3xl float-reverse"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -227,60 +380,60 @@
         <!-- ข้อความฝั่งซ้าย -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
           
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold border border-sage-200 shadow-sm hover:scale-105 transition-transform">
-            <span class="w-2 h-2 rounded-full bg-sage-500 badge-pulse"></span>
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-rose-100/70 text-rose-800 text-xs font-semibold border border-rose-200/80 shadow-sm hover:scale-105 transition-transform">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500 badge-pulse"></span>
             พื้นที่ปลอดภัยและฟื้นฟูพลังชีวิต
           </div>
 
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight tracking-tight">
             หมดไฟ... หรือแค่ใจ<br class="hidden sm:inline">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-sage-600 via-sage-700 to-peach-400">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-rose-400 to-peach-400">
               เหนื่อยล้าเกินไป?
             </span>
           </h1>
 
-          <p class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             การหยุดพักไม่ได้แปลว่าคุณยอมแพ้ หากวันนี้รู้สึกหนักอึ้ง MindReset Space พร้อมอยู่ข้างๆ ช่วยคุณเช็กสัญญาณภาวะ Burnout คืนสมดุลชีวิตทีละก้าว พร้อมประเมินใจฟรีกับ AI
           </p>
 
           <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
             <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer" 
-               class="btn-glow w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-semibold text-white bg-sage-600 hover:bg-sage-700 rounded-2xl shadow-lg shadow-sage-600/30 transition transform hover:-translate-y-1 hover:shadow-xl">
-              <i class="fa-solid fa-heart-pulse text-peach-200"></i>
+               class="btn-glow w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-500 to-rose-400 hover:from-rose-600 hover:to-rose-500 rounded-2xl shadow-soft-rose-lg transition-all transform hover:-translate-y-1 active:scale-95">
+              <i class="fa-solid fa-heart-pulse text-peach-200 text-lg"></i>
               ประเมินใจกับพี่หมอ Gem
             </a>
             
-            <a href="#facts" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-medium text-gray-700 bg-white/90 hover:bg-white border border-gray-200/80 rounded-2xl transition shadow-sm">
-              <i class="fa-solid fa-compass text-sage-600"></i>
-              สำรวจสัญญาณเตือน
+            <a href="#quiz" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-medium text-slate-700 bg-white/80 hover:bg-white border border-rose-200/80 rounded-2xl transition-all shadow-sm hover:border-rose-300 hover:shadow-soft-rose">
+              <i class="fa-solid fa-chart-pie text-rose-500"></i>
+              ทำแบบประเมินด่วน 1 นาที
             </a>
           </div>
 
           <!-- Social Proof & Quick Stats -->
-          <div class="pt-6 border-t border-sage-100 flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
+          <div class="pt-6 border-t border-rose-100 flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start">
             <!-- Mini User Avatars -->
             <div class="flex items-center gap-3">
               <div class="flex -space-x-2 overflow-hidden">
-                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="User 1">
-                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="User 2">
-                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="User 3">
+                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-rose-100 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="User 1">
+                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-rose-100 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="User 2">
+                <img class="inline-block h-9 w-9 rounded-full ring-2 ring-rose-100 object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="User 3">
               </div>
               <div class="text-left text-xs">
-                <p class="font-bold text-gray-800">1,200+ คน</p>
-                <p class="text-gray-500">เข้ามารีเซ็ตใจสัปดาห์นี้</p>
+                <p class="font-bold text-slate-800">1,200+ คน</p>
+                <p class="text-slate-500">เข้ามารีเซ็ตใจสัปดาห์นี้</p>
               </div>
             </div>
 
-            <div class="h-8 w-px bg-sage-200 hidden sm:block"></div>
+            <div class="h-8 w-px bg-rose-200/70 hidden sm:block"></div>
 
-            <div class="flex items-center gap-4 text-xs text-gray-600">
+            <div class="flex items-center gap-5 text-xs text-slate-600">
               <div>
                 <span class="font-bold text-peach-500 text-sm block">20 นาที</span>
                 <span>ตัดขาดจอคืนสมดุล</span>
               </div>
               <div>
-                <span class="font-bold text-sage-700 text-sm block">1323</span>
+                <span class="font-bold text-rose-600 text-sm block">1323</span>
                 <span>สายด่วนสุขภาพจิตฟรี</span>
               </div>
             </div>
@@ -288,57 +441,51 @@
 
         </div>
 
-        <!-- รูปภาพฝั่งขวา: Visual Collage -->
+        <!-- รูปภาพฝั่งขวา: Visual Collage ในกรอบมนละมุน -->
         <div class="lg:col-span-5 relative">
           <div class="relative mx-auto max-w-md lg:max-w-none">
             
             <!-- Glow backdrop -->
-            <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-sage-300 to-peach-200 opacity-50 filter blur-xl -z-10"></div>
+            <div class="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-rose-300 via-peach-200 to-rose-200 opacity-60 filter blur-xl -z-10"></div>
             
-            <div class="bg-white/95 p-3 rounded-3xl shadow-xl border border-white space-y-3">
+            <div class="bg-[#fffbfa]/90 backdrop-blur-md p-3.5 rounded-[2rem] shadow-soft-rose-lg border border-white/90 space-y-3">
               <!-- Main Hero Image -->
               <div class="relative overflow-hidden rounded-2xl group">
                 <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80" 
                      alt="หญิงสาวกำลังนั่งสมาธิและพักผ่อนท่ามกลางธรรมชาติอันเงียบสงบ" 
                      class="w-full h-80 sm:h-88 object-cover rounded-2xl img-zoom">
                 
-                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-sage-800 shadow-sm border border-white/60">
-                  <i class="fa-solid fa-leaf text-sage-600 mr-1"></i> ปล่อยวาง & คืนพลัง
+                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-[11px] font-semibold text-rose-800 shadow-sm border border-white/80">
+                  <i class="fa-solid fa-leaf text-rose-500 mr-1"></i> ปล่อยวาง & คืนพลัง
                 </div>
               </div>
               
               <!-- Two Mini Photo Thumbnails under Main Image -->
-              <div class="grid grid-cols-2 gap-2.5">
-                <div class="relative overflow-hidden rounded-xl group h-24">
+              <div class="grid grid-cols-2 gap-3">
+                <div class="relative overflow-hidden rounded-xl group h-24 shadow-sm">
                   <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=400&q=80" 
                        alt="โยคะเพื่อผ่อนคลายกล้ามเนื้อ" 
                        class="w-full h-full object-cover img-zoom">
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-2">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-2.5">
                     <span class="text-white text-[11px] font-medium leading-none">โยคะคลายเส้น</span>
                   </div>
                 </div>
 
-                <div class="relative overflow-hidden rounded-xl group h-24">
+                <div class="relative overflow-hidden rounded-xl group h-24 shadow-sm">
                   <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=400&q=80" 
                        alt="จิบชาอุ่นๆ อ่านหนังสือช้าๆ" 
                        class="w-full h-full object-cover img-zoom">
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-2">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-2.5">
                     <span class="text-white text-[11px] font-medium leading-none">จิบชาอุ่นพักสายตา</span>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <!-- Mini Floating Card -->
-              <div class="p-3 bg-cream-50 rounded-xl border border-sage-100 flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center shrink-0">
-                  <i class="fa-solid fa-mug-hot"></i>
-                </div>
-                <div>
-                  <h4 class="text-xs font-semibold text-gray-800">ช่วงเวลาผ่อนคลาย</h4>
-                  <p class="text-[11px] text-gray-500">หายใจเข้าลึกๆ ยิ้มให้ตัวเอง แล้วเริ่มใหม่อย่างอ่อนโยน</p>
-                </div>
-              </div>
-
+            <!-- Floating Badge เล็กประดับขวาบน -->
+            <div class="absolute -top-4 -right-3 hidden sm:flex items-center gap-2 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-soft-rose border border-rose-100 float-gentle">
+              <i class="fa-solid fa-heart text-rose-500 text-sm"></i>
+              <span class="text-xs font-semibold text-slate-700">Mindful Sanctuary</span>
             </div>
 
           </div>
@@ -349,99 +496,99 @@
   </section>
 
 
-  <!-- ==================== 3. SECTION เนื้อหาความรู้ (FACTS & TIPS) ==================== -->
-  <section id="facts" class="py-16 lg:py-24 bg-white/80 border-y border-sage-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+  <!-- ==================== 3. SECTION สัญญาณเตือน ==================== -->
+  <section id="facts" class="py-16 lg:py-24 bg-gradient-to-b from-[#fff9fa] via-[#fff0f4]/40 to-[#fff9fa] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       
-      <!-- ส่วนที่ 3.1: สัญญาณเตือนภาวะหมดไฟ (3 การ์ดพร้อมรูปภาพ) -->
+      <!-- สัญญาณเตือน -->
       <div>
         <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-          <span class="text-xs font-bold tracking-wider text-peach-500 uppercase">Self-Check Signs</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">3 สัญญาณเตือน... ใจกำลังร้องขอความช่วยเหลือ</h2>
-          <p class="text-sm text-gray-600 mt-2">เช็กอาการเบื้องต้นว่าความเครียดของคุณข้ามเส้นเข้าสู่ภาวะ Burnout แล้วหรือไม่</p>
+          <span class="inline-block text-xs font-bold tracking-wider text-rose-600 bg-rose-100/70 px-3.5 py-1 rounded-full uppercase mb-2 border border-rose-200/60">Warning Signs</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">3 สัญญาณเตือน... คุณกำลังก้าวเข้าสู่ภาวะ Burnout?</h2>
+          <p class="text-sm text-slate-600 mt-2">ร่างกายและจิตใจส่งสัญญาณเตือนอย่างเงียบๆ ลองสังเกตตัวเองก่อนที่จะสายเกินไป</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          
-          <!-- Card 1: ร่างกายหมดแรง -->
-          <div class="bg-cream-50/90 border border-sage-100 rounded-3xl overflow-hidden card-hover shadow-sm flex flex-col group reveal delay-100">
+
+          <!-- Card 1: หมดแรงเรื้อรัง -->
+          <div class="bg-[#fffbfb]/90 backdrop-blur-sm border border-rose-100/90 rounded-3xl overflow-hidden card-hover shadow-soft-rose flex flex-col group reveal delay-100">
             <div class="relative h-48 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?auto=format&fit=crop&w=700&q=80" 
-                   alt="คนทำงานหมดแรงนอนฟุบบนโต๊ะทำงาน" 
+              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=700&q=80" 
+                   alt="คนทำงานกำลังกุมขมับด้วยความเหนื่อยล้าบนโต๊ะทำงาน" 
                    class="w-full h-full object-cover img-zoom">
-              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-peach-500 shadow-sm">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold text-peach-600 shadow-sm border border-peach-100">
                 สัญญาณที่ 1
               </div>
-              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-peach-100/90 text-peach-500 flex items-center justify-center text-lg backdrop-blur-sm shadow">
+              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-2xl bg-peach-100/95 text-peach-500 flex items-center justify-center text-lg backdrop-blur-sm shadow-soft-peach">
                 <i class="fa-solid fa-battery-quarter"></i>
               </div>
             </div>
             
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">ร่างกายหมดแรงเรื้อรัง</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">ร่างกายหมดแรงเรื้อรัง</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
                   นอนเท่าไหร่ก็ไม่พอ ตื่นมายังเพลีย ปวดศีรษะ ปวดเมื่อยตามตัวโดยไม่มีสาเหตุชัดเจน ภูมิคุ้มกันต่ำลง ป่วยบ่อยกว่าปกติ
                 </p>
               </div>
-              <div class="mt-6 pt-4 border-t border-sage-100 flex items-center gap-2 text-xs text-sage-700">
-                <i class="fa-solid fa-circle-info"></i>
+              <div class="mt-6 pt-4 border-t border-rose-100 flex items-center gap-2 text-xs text-rose-700">
+                <i class="fa-solid fa-circle-info text-rose-500"></i>
                 <span>ควรตรวจคุณภาพการนอนหลับ & พักผ่อนทันที</span>
               </div>
             </div>
           </div>
 
           <!-- Card 2: อารมณ์เฉยชา -->
-          <div class="bg-cream-50/90 border border-sage-100 rounded-3xl overflow-hidden card-hover shadow-sm flex flex-col group reveal delay-200">
+          <div class="bg-[#fffbfb]/90 backdrop-blur-sm border border-rose-100/90 rounded-3xl overflow-hidden card-hover shadow-soft-rose flex flex-col group reveal delay-200">
             <div class="relative h-48 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=700&q=80" 
                    alt="มองเหม่อออกไปนอกหน้าต่างด้วยความรู้สึกว่างเปล่า" 
                    class="w-full h-full object-cover img-zoom">
-              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-sage-700 shadow-sm">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold text-rose-700 shadow-sm border border-rose-100">
                 สัญญาณที่ 2
               </div>
-              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-sage-100/90 text-sage-600 flex items-center justify-center text-lg backdrop-blur-sm shadow">
+              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-2xl bg-rose-100/95 text-rose-600 flex items-center justify-center text-lg backdrop-blur-sm shadow-soft-rose">
                 <i class="fa-solid fa-face-meh-blank"></i>
               </div>
             </div>
 
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">อารมณ์เฉยชาและแปลกแยก</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">อารมณ์เฉยชาและแปลกแยก</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
                   เริ่มมองงานหรือเพื่อนร่วมงานในแง่ลบ ขาดความกระตือรือร้น รู้สึกว่าอะไรก็ไร้ความหมาย แยกตัวออกจากคนรอบข้างอย่างเงียบๆ
                 </p>
               </div>
-              <div class="mt-6 pt-4 border-t border-sage-100 flex items-center gap-2 text-xs text-sage-700">
-                <i class="fa-solid fa-circle-info"></i>
+              <div class="mt-6 pt-4 border-t border-rose-100 flex items-center gap-2 text-xs text-rose-700">
+                <i class="fa-solid fa-circle-info text-rose-500"></i>
                 <span>สัญญาณภาวะ Depersonalization ทางใจ</span>
               </div>
             </div>
           </div>
 
           <!-- Card 3: งานสะดุด -->
-          <div class="bg-cream-50/90 border border-sage-100 rounded-3xl overflow-hidden card-hover shadow-sm flex flex-col group reveal delay-300">
+          <div class="bg-[#fffbfb]/90 backdrop-blur-sm border border-rose-100/90 rounded-3xl overflow-hidden card-hover shadow-soft-rose flex flex-col group reveal delay-300">
             <div class="relative h-48 overflow-hidden">
               <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=700&q=80" 
                    alt="งานท่วมหัว โต๊ะทำงานเต็มไปด้วยเอกสารและโน้ตเตือนใจ" 
                    class="w-full h-full object-cover img-zoom">
-              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-peach-500 shadow-sm">
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold text-peach-600 shadow-sm border border-peach-100">
                 สัญญาณที่ 3
               </div>
-              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-peach-100/90 text-peach-500 flex items-center justify-center text-lg backdrop-blur-sm shadow">
+              <div class="absolute bottom-3 right-3 w-10 h-10 rounded-2xl bg-peach-100/95 text-peach-500 flex items-center justify-center text-lg backdrop-blur-sm shadow-soft-peach">
                 <i class="fa-solid fa-triangle-exclamation"></i>
               </div>
             </div>
 
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">ประสิทธิภาพงานสะดุด</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">ประสิทธิภาพงานสะดุด</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
                   สมาธิสั้นลง ตัดสินใจช้า ผลัดวันประกันพรุ่ง ทำงานผิดพลาดบ่อยขึ้น และเริ่มสูญเสียความมั่นใจในความสามารถของตัวเอง
                 </p>
               </div>
-              <div class="mt-6 pt-4 border-t border-sage-100 flex items-center gap-2 text-xs text-sage-700">
-                <i class="fa-solid fa-circle-info"></i>
+              <div class="mt-6 pt-4 border-t border-rose-100 flex items-center gap-2 text-xs text-rose-700">
+                <i class="fa-solid fa-circle-info text-rose-500"></i>
                 <span>ไม่เท่ากับขี้เกียจ แต่คือสมองโอเวอร์โหลด</span>
               </div>
             </div>
@@ -450,117 +597,259 @@
         </div>
       </div>
 
+    </div>
+  </section>
 
-      <!-- ส่วนที่ 3.2: วิธีปฐมพยาบาลใจ (3 การ์ดพร้อมรูปภาพ) -->
-      <div id="tips">
-        <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-          <span class="text-xs font-bold tracking-wider text-sage-600 uppercase">First-Aid Mind Tips</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">3 วิธีปฐมพยาบาลใจ เริ่มต้นได้ตั้งแต่วันนี้</h2>
-          <p class="text-sm text-gray-600 mt-2">ขั้นตอนเรียบง่ายแต่ทรงพลังเพื่อดึงสมดุลและฟื้นฟูระดับพลังงานของคุณ</p>
+
+  <!-- ==================== NEW UI/UX PRO MAX: INTERACTIVE BURNOUT QUICK CHECK ==================== -->
+  <section id="quiz" class="py-16 lg:py-20 bg-gradient-to-b from-[#fff9fa] via-rose-50/50 to-[#fff9fa]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-[#fffbfa] border border-rose-200/80 rounded-[2.5rem] p-6 sm:p-10 shadow-soft-rose-lg reveal">
+        
+        <div class="text-center max-w-xl mx-auto mb-8">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-peach-100 text-peach-700 text-xs font-semibold mb-2 border border-peach-200/60 shadow-sm">
+            <i class="fa-solid fa-bolt-lightning text-peach-500"></i> Interactive Self-Check
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">เช็กระดับความล้าทางใจ 1 นาที</h2>
+          <p class="text-sm text-slate-600 mt-2">เลื่อนแถบวัดความรู้สึกปัจจุบันของคุณ เพื่อประเมินสภาวะพลังใจเบื้องต้นแบบเรียลไทม์</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-
-          <!-- Tip 1: กฎ 20 นาทีตัดขาดจอ -->
-          <div class="bg-white rounded-3xl overflow-hidden border border-sage-200/70 card-hover shadow-sm flex flex-col group reveal delay-100">
-            <div class="relative h-44 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=700&q=80" 
-                   alt="เดินเล่นท่ามกลางต้นไม้ตัดขาดจากหน้าจอมือถือ" 
-                   class="w-full h-full object-cover img-zoom">
-              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-sage-700 shadow-sm">
-                ขั้นตอนที่ 1
-              </div>
-              <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-sage-50 text-sage-700 flex items-center justify-center text-sm shadow">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-              </div>
+        <div class="space-y-6">
+          
+          <!-- Slider 1 -->
+          <div class="bg-white/90 p-5 rounded-2xl border border-rose-100 shadow-sm space-y-2">
+            <div class="flex justify-between items-center text-sm font-semibold text-slate-700">
+              <label for="q1">1. ความรู้สึกหมดแรง / ล้าหลังตื่นนอน</label>
+              <span id="q1Val" class="text-rose-600 font-bold bg-rose-50 px-2.5 py-0.5 rounded-lg text-xs">ปานกลาง (2/4)</span>
             </div>
-
-            <div class="p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">กฎ 20 นาทีตัดขาดหน้าจอ</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
-                  หลังเลิกงานหรือก่อนนอน วางสมาร์ตโฟนและคอมพิวเตอร์อย่างน้อย 20 นาที ให้สมองได้พักจากการประมวลผลข้อมูลต่อเนื่องและแสงสีฟ้า
-                </p>
-              </div>
-              <div class="mt-5 bg-sage-50 rounded-xl p-3 text-xs text-sage-800 font-medium">
-                💡 ทริก: ฟังเสียงธรรมชาติ ชงชาอุ่นๆ หรือมองต้นไม้สีเขียว
-              </div>
+            <input type="range" id="q1" min="0" max="4" value="2" class="w-full cursor-pointer">
+            <div class="flex justify-between text-[11px] text-slate-600 font-medium">
+              <span>สดชื่นปกติ</span>
+              <span>เพลียเล็กน้อย</span>
+              <span>หมดแรงเรื้อรัง</span>
             </div>
           </div>
 
-          <!-- Tip 2: การนอนหลับที่มีคุณภาพ -->
-          <div class="bg-white rounded-3xl overflow-hidden border border-sage-200/70 card-hover shadow-sm flex flex-col group reveal delay-200">
-            <div class="relative h-44 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=700&q=80" 
-                   alt="เตียงนอนอบอุ่นนุ่มสบาย เหมาะแก่การนอนหลับลึก" 
-                   class="w-full h-full object-cover img-zoom">
-              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-peach-500 shadow-sm">
-                ขั้นตอนที่ 2
-              </div>
-              <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-peach-50 text-peach-500 flex items-center justify-center text-sm shadow">
-                <i class="fa-solid fa-moon"></i>
-              </div>
+          <!-- Slider 2 -->
+          <div class="bg-white/90 p-5 rounded-2xl border border-rose-100 shadow-sm space-y-2">
+            <div class="flex justify-between items-center text-sm font-semibold text-slate-700">
+              <label for="q2">2. ความรู้สึกเฉยชา / เบื่องานหรือการเรียน</label>
+              <span id="q2Val" class="text-rose-600 font-bold bg-rose-50 px-2.5 py-0.5 rounded-lg text-xs">ปานกลาง (2/4)</span>
             </div>
-
-            <div class="p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">การนอนหลับที่มีคุณภาพ</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
-                  เข้านอนและตื่นเวลาเดิม ปรับอุณหภูมิห้องให้เย็นสบาย ปิดไฟให้มืดสนิท เพื่อให้ฮอร์โมนเมลาโทนินทำงานได้อย่างเต็มประสิทธิภาพ
-                </p>
-              </div>
-              <div class="mt-5 bg-peach-50 rounded-xl p-3 text-xs text-peach-700 font-medium">
-                🌙 เป้าหมาย: พักผ่อน 7-8 ชั่วโมงอย่างต่อเนื่อง ไม่เล่นมือถือบนเตียง
-              </div>
+            <input type="range" id="q2" min="0" max="4" value="2" class="w-full cursor-pointer">
+            <div class="flex justify-between text-[11px] text-slate-600 font-medium">
+              <span>ยังมีไฟ</span>
+              <span>เบื่อเป็นช่วงๆ</span>
+              <span>ไร้ความหมายสิ้นเชิง</span>
             </div>
           </div>
 
-          <!-- Tip 3: ปฏิเสธให้เป็น -->
-          <div class="bg-white rounded-3xl overflow-hidden border border-sage-200/70 card-hover shadow-sm flex flex-col group reveal delay-300">
-            <div class="relative h-44 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=700&q=80" 
-                   alt="หญิงสาวยืนสูดอากาศบริสุทธิ์อย่างมั่นใจและผ่อนคลาย" 
-                   class="w-full h-full object-cover img-zoom">
-              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-sage-700 shadow-sm">
-                ขั้นตอนที่ 3
-              </div>
-              <div class="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-sage-50 text-sage-700 flex items-center justify-center text-sm shadow">
-                <i class="fa-solid fa-hand-holding-heart"></i>
-              </div>
+          <!-- Slider 3 -->
+          <div class="bg-white/90 p-5 rounded-2xl border border-rose-100 shadow-sm space-y-2">
+            <div class="flex justify-between items-center text-sm font-semibold text-slate-700">
+              <label for="q3">3. คุณภาพการนอนหลับและการพักผ่อน</label>
+              <span id="q3Val" class="text-rose-600 font-bold bg-rose-50 px-2.5 py-0.5 rounded-lg text-xs">ปานกลาง (2/4)</span>
             </div>
-
-            <div class="p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">ปฏิเสธให้เป็น (Saying No)</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
-                  การตั้งขอบเขต (Boundaries) ไม่ใช่ความเห็นแก่ตัว แต่คือการปกป้องสุขภาพจิต กล้าพูดปฏิเสธงานหรือคำขอที่เกินขีดความสามารถของตน
-                </p>
-              </div>
-              <div class="mt-5 bg-sage-50 rounded-xl p-3 text-xs text-sage-800 font-medium">
-                🛡️ จำไว้: การ say NO ต่องานเกินตัว คือ say YES ให้ชีวิตตนเอง
-              </div>
+            <input type="range" id="q3" min="0" max="4" value="2" class="w-full cursor-pointer">
+            <div class="flex justify-between text-[11px] text-slate-600 font-medium">
+              <span>หลับสนิท</span>
+              <span>หลับๆ ตื่นๆ</span>
+              <span>นอนไม่หลับเรื้อรัง</span>
             </div>
           </div>
 
         </div>
+
+        <!-- Result Box Dynamic -->
+        <div class="mt-8 p-6 rounded-3xl bg-gradient-to-r from-rose-50 via-peach-50 to-rose-50 border border-rose-200/80 text-center space-y-3">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">ผลประเมินระดับความล้า</span>
+          <div id="quizResultTitle" class="text-xl sm:text-2xl font-bold text-rose-700 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-battery-half text-peach-500"></i>
+            <span>ระดับพลังงาน: เริ่มมีความเหนื่อยล้าสะสม (Moderate)</span>
+          </div>
+          <p id="quizResultDesc" class="text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
+            ใจคุณกำลังส่งสัญญาณบอกให้ชะลอความเร็ว แนะนำให้ใช้กฎตัดขาดหน้าจอ 20 นาที และพูดคุยกับพี่หมอใจดีเพื่อรับคำแนะนำเฉพาะตัว
+          </p>
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-rose-500 hover:bg-rose-600 rounded-xl shadow-soft-rose transition hover:scale-105 active:scale-95">
+              <i class="fa-solid fa-comments"></i> ปรึกษาพี่หมอใจดี Gem เพิ่มเติม
+            </a>
+            <a href="#tips" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-slate-700 bg-white hover:bg-rose-50 border border-rose-200 rounded-xl transition">
+              <i class="fa-solid fa-arrow-down"></i> ดู 3 วิธีฟื้นฟูใจ
+            </a>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </section>
 
 
-  <!-- ==================== NEW: MINDFUL MOMENTS PHOTO GALLERY ==================== -->
-  <section id="gallery" class="py-16 lg:py-20 bg-cream-100/60">
+  <!-- ==================== NEW UI/UX PRO MAX: MINDFUL BREATHING 4-7-8 WIDGET ==================== -->
+  <section id="breathe" class="py-16 lg:py-24 bg-gradient-to-b from-[#fff0f4]/40 via-[#fff9fa] to-[#fff0f4]/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-10 reveal">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-semibold mb-2 border border-rose-200/60 shadow-sm">
+          <i class="fa-solid fa-wind text-rose-500"></i> Mindful Breath Reset
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">เครื่องมือฝึกกำหนดลมหายใจ 4-7-8</h2>
+        <p class="text-sm text-slate-600 mt-2">ผ่อนคลายระบบประสาท ลดความตึงเครียดฉับพลันใน 1 นาทีด้วยจังหวะหายใจวิทยาศาสตร์</p>
+      </div>
+
+      <div class="bg-[#fffbfa] border border-rose-200/80 rounded-[2.5rem] p-8 sm:p-12 shadow-soft-rose-lg flex flex-col items-center text-center reveal">
+        
+        <!-- Breathing Visual Animated Circle -->
+        <div class="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center my-4">
+          
+          <!-- Outer Pulsing Glow -->
+          <div id="breatheRing" class="absolute inset-0 rounded-full bg-gradient-to-tr from-rose-200 via-peach-200 to-rose-300 opacity-60 filter blur-md breathe-circle breathe-exhale"></div>
+          
+          <!-- Core Interactive Orb -->
+          <div id="breatheOrb" class="relative z-10 w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-rose-400 via-rose-300 to-peach-300 text-white flex flex-col items-center justify-center shadow-soft-rose-xl breathe-circle breathe-exhale border-4 border-white/80">
+            <span id="breatheText" class="text-xl sm:text-2xl font-bold tracking-tight">กดเริ่ม</span>
+            <span id="breatheTimer" class="text-3xl sm:text-4xl font-extrabold mt-1">4-7-8</span>
+            <span id="breatheHint" class="text-[11px] text-white/90 font-medium mt-1">คลายความกังวล</span>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3.5">
+          <button id="breatheToggleBtn" class="inline-flex items-center gap-2.5 px-7 py-3 bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-sm rounded-2xl shadow-soft-rose hover:shadow-soft-rose-lg transition transform hover:scale-105 active:scale-95">
+            <i id="breathePlayIcon" class="fa-solid fa-play"></i>
+            <span id="breatheBtnText">เริ่มฝึกหายใจ (1 นาที)</span>
+          </button>
+          
+          <button id="breatheResetBtn" class="inline-flex items-center gap-2 px-5 py-3 text-slate-600 hover:text-slate-800 bg-rose-50/80 hover:bg-rose-100/70 border border-rose-200/60 font-semibold text-sm rounded-2xl transition">
+            <i class="fa-solid fa-rotate-right"></i> รีเซ็ต
+          </button>
+        </div>
+
+        <p class="text-xs text-slate-600 mt-5 max-w-sm font-medium">
+          จังหวะ: สูดหายใจเข้าทางจมูก 4 วิ &bull; กลั้นไว้ 7 วิ &bull; ผ่อนลมหายใจออกทางปากช้าๆ 8 วิ
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 4. SECTION วิธีฟื้นฟูใจ ==================== -->
+  <section id="tips" class="py-16 lg:py-24 bg-gradient-to-b from-[#fff9fa] via-[#fff0f4]/30 to-[#fff9fa]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+        <span class="inline-block text-xs font-bold tracking-wider text-rose-600 bg-rose-100/70 px-3.5 py-1 rounded-full uppercase mb-2 border border-rose-200/60">First-Aid Mind Tips</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">3 วิธีปฐมพยาบาลใจ เริ่มต้นได้ตั้งแต่วันนี้</h2>
+        <p class="text-sm text-slate-600 mt-2">ขั้นตอนเรียบง่ายแต่ทรงพลังเพื่อดึงสมดุลและฟื้นฟูระดับพลังงานของคุณ</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Tip 1: กฎ 20 นาทีตัดขาดจอ -->
+        <div class="bg-[#fffbfa] rounded-3xl overflow-hidden border border-rose-200/70 card-hover shadow-soft-rose flex flex-col group reveal delay-100">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=700&q=80" 
+                 alt="เดินเล่นท่ามกลางต้นไม้ตัดขาดจากหน้าจอมือถือ" 
+                 class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold text-rose-700 shadow-sm">
+              ขั้นตอนที่ 1
+            </div>
+            <div class="absolute bottom-3 right-3 w-9 h-9 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm shadow-sm border border-rose-100">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-slate-800 mb-2">กฎ 20 นาทีตัดขาดหน้าจอ</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                หลังเลิกงานหรือก่อนนอน วางสมาร์ตโฟนและคอมพิวเตอร์อย่างน้อย 20 นาที ให้สมองได้พักจากการประมวลผลข้อมูลต่อเนื่องและแสงสีฟ้า
+              </p>
+            </div>
+            <div class="mt-5 bg-rose-50/80 rounded-2xl p-3.5 text-xs text-rose-800 font-medium border border-rose-100/80">
+              💡 ทริก: ฟังเสียงธรรมชาติ ชงชาอุ่นๆ หรือมองต้นไม้สีเขียว
+            </div>
+          </div>
+        </div>
+
+        <!-- Tip 2: การนอนหลับที่มีคุณภาพ -->
+        <div class="bg-[#fffbfa] rounded-3xl overflow-hidden border border-rose-200/70 card-hover shadow-soft-rose flex flex-col group reveal delay-200">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=700&q=80" 
+                 alt="เตียงนอนอบอุ่นนุ่มสบาย เหมาะแก่การนอนหลับลึก" 
+                 class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold text-peach-600 shadow-sm">
+              ขั้นตอนที่ 2
+            </div>
+            <div class="absolute bottom-3 right-3 w-9 h-9 rounded-2xl bg-peach-50 text-peach-500 flex items-center justify-center text-sm shadow-sm border border-peach-100">
+              <i class="fa-solid fa-moon"></i>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-slate-800 mb-2">การนอนหลับที่มีคุณภาพ</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                เข้านอนและตื่นเวลาเดิม ปรับอุณหภูมิห้องให้เย็นสบาย ปิดไฟให้มืดสนิท เพื่อให้ฮอร์โมนเมลาโทนินทำงานได้อย่างเต็มประสิทธิภาพ
+              </p>
+            </div>
+            <div class="mt-5 bg-peach-50/90 rounded-2xl p-3.5 text-xs text-peach-700 font-medium border border-peach-100/80">
+              🌙 เป้าหมาย: พักผ่อน 7-8 ชั่วโมงอย่างต่อเนื่อง ไม่เล่นมือถือบนเตียง
+            </div>
+          </div>
+        </div>
+
+        <!-- Tip 3: ปฏิเสธให้เป็น -->
+        <div class="bg-[#fffbfa] rounded-3xl overflow-hidden border border-rose-200/70 card-hover shadow-soft-rose flex flex-col group reveal delay-300">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=700&q=80" 
+                 alt="หญิงสาวยืนสูดอากาศบริสุทธิ์อย่างมั่นใจและผ่อนคลาย" 
+                 class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold text-rose-700 shadow-sm">
+              ขั้นตอนที่ 3
+            </div>
+            <div class="absolute bottom-3 right-3 w-9 h-9 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm shadow-sm border border-rose-100">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-slate-800 mb-2">ปฏิเสธให้เป็น (Saying No)</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                การตั้งขอบเขต (Boundaries) ไม่ใช่ความเห็นแก่ตัว แต่คือการปกป้องสุขภาพจิต กล้าพูดปฏิเสธงานหรือคำขอที่เกินขีดความสามารถของตน
+              </p>
+            </div>
+            <div class="mt-5 bg-rose-50/80 rounded-2xl p-3.5 text-xs text-rose-800 font-medium border border-rose-100/80">
+              🛡️ จำไว้: การ say NO ต่องานเกินตัว คือ say YES ให้ชีวิตตนเอง
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 5. MINDFUL MOMENTS PHOTO GALLERY ==================== -->
+  <section id="gallery" class="py-16 lg:py-24 bg-gradient-to-b from-[#fff0f4]/40 via-[#fff9fa] to-[#fff0f4]/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 reveal">
         <div>
-          <span class="text-xs font-bold tracking-wider text-sage-600 uppercase">Mindful Healing Moments</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">มุมพักใจประจำวัน (Visual Therapy)</h2>
-          <p class="text-sm text-gray-600 mt-1">หยุดสายตาสักนิด ให้ภาพธรรมชาติและความอบอุ่นช่วยปลอบประโลมใจคุณ</p>
+          <span class="inline-block text-xs font-bold tracking-wider text-rose-600 bg-rose-100/70 px-3.5 py-1 rounded-full uppercase mb-2 border border-rose-200/60">Mindful Healing Moments</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">มุมพักใจประจำวัน (Visual Therapy)</h2>
+          <p class="text-sm text-slate-600 mt-1">หยุดสายตาสักนิด ให้ภาพธรรมชาติและความอบอุ่นช่วยปลอบประโลมใจคุณ</p>
         </div>
-        <div class="hidden sm:flex items-center gap-2 text-xs text-sage-700 font-medium bg-sage-100/70 px-3.5 py-1.5 rounded-full">
-          <i class="fa-regular fa-compass"></i> สำรวจวิธีฮีลใจแบบเรียบง่าย
+        <div class="hidden sm:flex items-center gap-2 text-xs text-rose-700 font-medium bg-rose-100/70 px-4 py-2 rounded-2xl border border-rose-200/60 shadow-sm">
+          <i class="fa-regular fa-compass text-rose-500"></i> สำรวจวิธีฮีลใจแบบเรียบง่าย
         </div>
       </div>
 
@@ -568,50 +857,50 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
         <!-- Gallery Item 1 -->
-        <div class="relative rounded-3xl overflow-hidden group shadow-md h-64 reveal delay-100">
+        <div class="relative rounded-3xl overflow-hidden group shadow-soft-rose h-68 reveal delay-100 border border-white/60">
           <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" 
                alt="แสงแดดอบอุ่นส่องผ่านต้นไม้ในป่าเขียวขจี" 
                class="w-full h-full object-cover img-zoom">
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/25 to-transparent p-5 flex flex-col justify-end">
             <span class="text-peach-200 text-xs font-semibold">Forest Bathing</span>
             <h4 class="text-white text-base font-bold">อาบป่า สูดกลิ่นดิน</h4>
-            <p class="text-gray-200 text-xs mt-1">การอยู่ใกล้ต้นไม้ช่วยลดระดับฮอร์โมนคอร์ติซอลได้อย่างมีนัยสำคัญ</p>
+            <p class="text-rose-100/90 text-xs mt-1">การอยู่ใกล้ต้นไม้ช่วยลดระดับฮอร์โมนคอร์ติซอลได้อย่างมีนัยสำคัญ</p>
           </div>
         </div>
 
         <!-- Gallery Item 2 -->
-        <div class="relative rounded-3xl overflow-hidden group shadow-md h-64 reveal delay-200">
+        <div class="relative rounded-3xl overflow-hidden group shadow-soft-rose h-68 reveal delay-200 border border-white/60">
           <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" 
                alt="สมุดบันทึกและแก้วกาแฟอุ่นๆ บนโต๊ะไม้" 
                class="w-full h-full object-cover img-zoom">
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/25 to-transparent p-5 flex flex-col justify-end">
             <span class="text-peach-200 text-xs font-semibold">Brain Dump</span>
             <h4 class="text-white text-base font-bold">เขียนระบายความกังวล</h4>
-            <p class="text-gray-200 text-xs mt-1">เขียนสิ่งที่ค้างคาในหัวลงกระดาษ เพื่อปลดล็อกพื้นที่ในสมอง</p>
+            <p class="text-rose-100/90 text-xs mt-1">เขียนสิ่งที่ค้างคาในหัวลงกระดาษ เพื่อปลดล็อกพื้นที่ในสมอง</p>
           </div>
         </div>
 
         <!-- Gallery Item 3 -->
-        <div class="relative rounded-3xl overflow-hidden group shadow-md h-64 reveal delay-300">
+        <div class="relative rounded-3xl overflow-hidden group shadow-soft-rose h-68 reveal delay-300 border border-white/60">
           <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" 
                alt="คลื่นทะเลกระทบหาดทรายขาวสงบเงียบ" 
                class="w-full h-full object-cover img-zoom">
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/25 to-transparent p-5 flex flex-col justify-end">
             <span class="text-peach-200 text-xs font-semibold">Wave Rhythm</span>
             <h4 class="text-white text-base font-bold">ฟังจังหวะคลื่นทะเล</h4>
-            <p class="text-gray-200 text-xs mt-1">เสียงน้ำซัดสร้างคลื่นสมองระดับ Alpha ช่วยให้จิตใจนิ่งสงบ</p>
+            <p class="text-rose-100/90 text-xs mt-1">เสียงน้ำซัดสร้างคลื่นสมองระดับ Alpha ช่วยให้จิตใจนิ่งสงบ</p>
           </div>
         </div>
 
         <!-- Gallery Item 4 -->
-        <div class="relative rounded-3xl overflow-hidden group shadow-md h-64 reveal delay-400">
+        <div class="relative rounded-3xl overflow-hidden group shadow-soft-rose h-68 reveal delay-400 border border-white/60">
           <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=600&q=80" 
                alt="โต๊ะอ่านหนังสือพร้อมแก้วชาร้อนยามเย็น" 
                class="w-full h-full object-cover img-zoom">
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/25 to-transparent p-5 flex flex-col justify-end">
             <span class="text-peach-200 text-xs font-semibold">Slow Living</span>
             <h4 class="text-white text-base font-bold">ทำทีละอย่างแบบช้าลง</h4>
-            <p class="text-gray-200 text-xs mt-1">ลดการทำงานแบบ Multitasking เพื่อให้ใจได้จดจ่ออย่างสบายๆ</p>
+            <p class="text-rose-100/90 text-xs mt-1">ลดการทำงานแบบ Multitasking เพื่อให้ใจได้จดจ่ออย่างสบายๆ</p>
           </div>
         </div>
 
@@ -621,26 +910,26 @@
   </section>
 
 
-  <!-- ==================== 4. SECTION ฝังคลิปวิดีโอ (VIDEO SECTION) ==================== -->
-  <section id="video" class="py-16 lg:py-24">
+  <!-- ==================== 6. SECTION ฝังคลิปวิดีโอ (VIDEO SECTION) ==================== -->
+  <section id="video" class="py-16 lg:py-24 relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-8 reveal">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-peach-100 text-peach-600 text-xs font-semibold mb-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-peach-100 text-peach-600 text-xs font-semibold mb-2 border border-peach-200/60 shadow-sm">
           <i class="fa-solid fa-play"></i> Video Spotlight
         </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">คลิปสั้น 20 วินาที: ไขความจริง Burnout vs ขี้เกียจ</h2>
-        <p class="text-sm text-gray-600 mt-2">คลิปสื่อการเรียนรู้แบบสั้น (สร้างสรรค์ด้วย CapCut & Canva) อธิบายความแตกต่างให้เข้าใจได้ในพริบตา</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">คลิปสั้น 20 วินาที: ไขความจริง Burnout vs ขี้เกียจ</h2>
+        <p class="text-sm text-slate-600 mt-2">คลิปสื่อการเรียนรู้แบบสั้น (สร้างสรรค์ด้วย CapCut & Canva) อธิบายความแตกต่างให้เข้าใจได้ในพริบตา</p>
       </div>
 
       <!-- กรอบฝังวิดีโอ Responsive 16:9 Aspect Ratio -->
-      <div class="bg-white p-3 sm:p-4 rounded-3xl shadow-xl border border-sage-200/80 reveal delay-100">
-        <div class="relative w-full overflow-hidden rounded-2xl bg-black" style="padding-top: 56.25%;">
+      <div class="bg-[#fffbfa] p-3.5 sm:p-5 rounded-3xl shadow-soft-rose-lg border border-rose-200/80 reveal delay-100">
+        <div class="relative w-full overflow-hidden rounded-2xl bg-slate-900 shadow-inner" style="padding-top: 56.25%;">
           
           <!-- [จุดที่ต้องเปลี่ยนลิงก์: YOUTUBE EMBED IFRAME] -->
           <iframe 
-            class="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube-nocookie.com/embed/lpW73K0lSG8?rel=0" 
+            class="absolute top-0 left-0 w-full h-full rounded-2xl"
+            src="https://www.youtube-nocookie.com/embed/N_eDyCFjf8A?rel=0" 
             title="คลิปสั้น 20 วินาที: ไขความจริง Burnout vs ขี้เกียจ" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -649,15 +938,15 @@
           </iframe>
         </div>
 
-        <div class="mt-4 px-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-gray-500">
+        <div class="mt-4 px-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500">
           <div class="flex items-center gap-2">
             <i class="fa-brands fa-youtube text-red-500 text-base"></i>
             <span>วิดีโอความรู้ประกอบโครงการ MindReset Space</span>
-            <a href="https://youtu.be/lpW73K0lSG8" target="_blank" rel="noopener noreferrer" class="text-sage-700 underline hover:text-sage-900 ml-2">
+            <a href="https://youtu.be/N_eDyCFjf8A" target="_blank" rel="noopener noreferrer" class="text-rose-600 underline hover:text-rose-800 font-medium ml-2 transition-colors">
               (เปิดดูบน YouTube โดยตรง)
             </a>
           </div>
-          <span class="inline-block bg-sage-100 text-sage-800 px-2.5 py-1 rounded-md font-medium">
+          <span class="inline-block bg-rose-100/80 text-rose-800 px-3 py-1 rounded-xl font-medium border border-rose-200/50">
             ความยาวคลิป: 20 วินาที
           </span>
         </div>
@@ -667,16 +956,16 @@
   </section>
 
 
-  <!-- ==================== 5. SECTION ช่องทางช่วยเหลือ & แชทบอท ==================== -->
-  <section class="py-16 lg:py-20 bg-gradient-to-b from-transparent via-sage-100/50 to-sage-100/80">
+  <!-- ==================== 7. SECTION ช่องทางช่วยเหลือ & แชทบอท ==================== -->
+  <section class="py-16 lg:py-20 bg-gradient-to-b from-transparent via-rose-100/40 to-rose-100/70">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- กล่อง Callout สีเด่น ชวนคุย AI พี่หมอใจดี & สายด่วนสุขภาพจิต -->
-      <div class="relative bg-gradient-to-br from-sage-700 via-sage-800 to-sage-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl overflow-hidden reveal">
+      <!-- กล่อง Callout สีเด่น อบอุ่น สไตล์ Cozy Wellness Sanctuary -->
+      <div class="relative bg-gradient-to-br from-[#541d2a] via-[#6d2539] to-[#843246] rounded-[2.5rem] p-8 sm:p-12 text-white shadow-soft-rose-xl overflow-hidden reveal border border-rose-400/20">
         
-        <!-- แสงประดับพื้นหลัง -->
-        <div class="absolute -right-10 -bottom-10 w-72 h-72 rounded-full bg-peach-400/20 filter blur-3xl pointer-events-none float-slow"></div>
-        <div class="absolute -left-10 -top-10 w-72 h-72 rounded-full bg-sage-400/20 filter blur-3xl pointer-events-none float-reverse"></div>
+        <!-- แสงประดับพื้นหลัง Floating Ambient Orbs -->
+        <div class="absolute -right-10 -bottom-10 w-72 h-72 rounded-full bg-peach-400/25 filter blur-3xl pointer-events-none float-slow"></div>
+        <div class="absolute -left-10 -top-10 w-72 h-72 rounded-full bg-rose-400/25 filter blur-3xl pointer-events-none float-reverse"></div>
 
         <div class="relative z-10 grid md:grid-cols-12 gap-8 items-center">
           
@@ -688,10 +977,10 @@
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" 
                      alt="พี่หมอใจดี AI Companion" 
                      class="w-12 h-12 rounded-full object-cover ring-2 ring-peach-200 shadow-md">
-                <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-400 border-2 border-sage-800 rounded-full"></span>
+                <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-400 border-2 border-[#541d2a] rounded-full"></span>
               </div>
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-peach-200 text-xs font-semibold backdrop-blur-sm border border-white/15">
-                <i class="fa-solid fa-sparkles"></i> AI Mental Companion
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 text-peach-200 text-xs font-semibold backdrop-blur-sm border border-white/15">
+                <i class="fa-solid fa-sparkles text-peach-300"></i> AI Mental Companion
               </span>
             </div>
 
@@ -699,35 +988,38 @@
               รู้สึกอึดอัดใจ?<br>
               ลองคุยกับ <span class="text-peach-200">"พี่หมอใจดี"</span> ได้เลย
             </h2>
-            <p class="text-sage-100 text-sm sm:text-base leading-relaxed">
+            <p class="text-rose-100/90 text-sm sm:text-base leading-relaxed">
               พี่หมอใจดีเป็น AI Gem Chatbot ที่ถูกปรับแต่งเพื่อรับฟังอย่างอ่อนโยน ช่วยประเมินความเครียดเบื้องต้น และแนะนำวิธีผ่อนคลายเฉพาะบุคคล ปลอดภัย ไม่ตัดสินคุณ
             </p>
 
             <div class="pt-2">
               <!-- [จุดที่ต้องเปลี่ยนลิงก์: GEM CHATBOT] -->
               <a href="https://opal.google/app/1nJJ95Q-dBzTks35SkGfX13c6Oo3Sq_cD" target="_blank" rel="noopener noreferrer"
-                 class="btn-glow inline-flex items-center gap-3 px-7 py-3.5 bg-peach-400 hover:bg-peach-300 text-gray-950 font-bold rounded-2xl shadow-lg transition transform hover:-translate-y-1 hover:shadow-xl active:scale-95 text-base">
-                <i class="fa-solid fa-comments text-lg"></i>
+                 class="btn-glow inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-peach-400 via-peach-300 to-peach-400 hover:from-peach-300 hover:to-peach-200 text-slate-900 font-bold rounded-2xl shadow-soft-peach-lg transition-all transform hover:-translate-y-1 active:scale-95 text-base">
+                <i class="fa-solid fa-comments text-lg text-rose-700"></i>
                 เริ่มพูดคุยกับพี่หมอใจดีทันที
               </a>
             </div>
           </div>
 
-          <!-- กล่องสายด่วน 1323 -->
+          <!-- กล่องสายด่วน 1323 พร้อมปุ่มคัดลอกเบอร์โทรทันที -->
           <div class="md:col-span-5">
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center space-y-3 hover:border-peach-200/50 transition-colors">
-              <div class="w-12 h-12 rounded-full bg-peach-200/20 text-peach-200 flex items-center justify-center mx-auto text-xl">
+            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 text-center space-y-3.5 hover:border-peach-200/50 transition-colors shadow-soft-rose">
+              <div class="w-12 h-12 rounded-2xl bg-peach-200/20 text-peach-200 flex items-center justify-center mx-auto text-xl shadow-inner">
                 <i class="fa-solid fa-phone-volume"></i>
               </div>
               <h3 class="text-lg font-bold text-white">สายด่วนสุขภาพจิต กรมสุขภาพจิต</h3>
-              <p class="text-xs text-sage-100">หากคุณรู้สึกไม่ไหว หรือต้องการพูดคุยกับผู้เชี่ยวชาญ โทรได้ฟรีตลอด 24 ชั่วโมง</p>
+              <p class="text-xs text-rose-100/90">หากคุณรู้สึกไม่ไหว หรือต้องการพูดคุยกับผู้เชี่ยวชาญ โทรได้ฟรีตลอด 24 ชั่วโมง</p>
               
-              <div class="pt-2">
-                <a href="tel:1323" class="inline-block w-full py-3 bg-white text-sage-900 hover:bg-sage-50 font-bold text-xl rounded-xl transition shadow hover:scale-105">
+              <div class="pt-1.5 flex flex-col gap-2">
+                <a href="tel:1323" class="inline-block w-full py-3 bg-[#fff9fa] text-rose-900 hover:bg-white font-bold text-xl rounded-2xl transition shadow-sm hover:scale-105 active:scale-95">
                   📞 โทร 1323 (ฟรี)
                 </a>
+                <button id="copyHotlineBtn" class="w-full py-2 bg-white/10 hover:bg-white/20 text-rose-100 text-xs font-semibold rounded-xl transition flex items-center justify-center gap-2 border border-white/15">
+                  <i class="fa-regular fa-copy"></i> คัดลอกเบอร์ 1323
+                </button>
               </div>
-              <span class="text-[11px] text-sage-200 block">ให้บริการตลอด 24 ชั่วโมง โดยบุคลากรผู้เชี่ยวชาญ</span>
+              <span class="text-[11px] text-rose-200/90 block font-light">ให้บริการตลอด 24 ชั่วโมง โดยบุคลากรผู้เชี่ยวชาญ</span>
             </div>
           </div>
 
@@ -739,30 +1031,30 @@
   </section>
 
 
-  <!-- ==================== 6. FOOTER ==================== -->
-  <footer class="bg-sage-900 text-sage-100 border-t border-sage-800">
+  <!-- ==================== 8. FOOTER ==================== -->
+  <footer class="bg-[#2d1b22] text-rose-100 border-t border-rose-950/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-sage-800 text-center md:text-left">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-rose-900/60 text-center md:text-left">
         
         <!-- Logo & Mission -->
         <div>
           <div class="flex items-center justify-center md:justify-start gap-3">
-            <div class="w-8 h-8 rounded-lg bg-sage-700 flex items-center justify-center text-white">
+            <div class="w-8 h-8 rounded-xl bg-rose-600/80 flex items-center justify-center text-white shadow-soft-rose">
               <i class="fa-solid fa-seedling text-sm"></i>
             </div>
             <span class="text-lg font-bold text-white tracking-tight">MindReset Space</span>
           </div>
-          <p class="text-xs text-sage-300 mt-2 max-w-md">
+          <p class="text-xs text-rose-200/70 mt-2 max-w-md leading-relaxed">
             จัดทำขึ้นเพื่อการศึกษาโดยใช้เครื่องมือ Generative AI เพื่อเผยแพร่ความรู้เรื่อง Burnout Syndrome ในกลุ่มวัยเรียนและวัยทำงาน
           </p>
         </div>
 
-        <!-- [จุดที่ต้องเปลี่ยนลิงก์: AI PROCESS LOG (GOOGLE DOCS) - ปุ่มซ้ำใน FOOTER] -->
+        <!-- [จุดที่ต้องเปลี่ยนลิงก์: AI PROCESS LOG (GOOGLE DOCS) - ปุ่มฝั่ง FOOTER] -->
         <div>
           <a href="https://docs.google.com/document/d/1VY4uLBC0PqrFElXsrxPspTIc2LgrVOFye1wCMXqYyqs/edit?usp=sharing" target="_blank" rel="noopener noreferrer" 
-             class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white border border-sage-600 rounded-xl hover:bg-sage-800 hover:border-sage-400 transition hover:scale-105">
-            <i class="fa-regular fa-file-lines text-peach-200"></i>
+             class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-rose-100 border border-rose-700/60 rounded-2xl hover:bg-rose-900/50 hover:border-rose-500 transition-all hover:scale-105 shadow-sm">
+            <i class="fa-regular fa-file-lines text-peach-300"></i>
             AI Process Log (Google Docs)
           </a>
         </div>
@@ -770,25 +1062,49 @@
       </div>
 
       <!-- Copyright & Disclaimer -->
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-sage-400 text-center">
-        <p>© 2026 MindReset Space. จัดทำขึ้นเพื่อการศึกษาโดยใช้เครื่องมือ Generative AI</p>
-        <p class="text-sage-400">เนื้อหานี้ไม่ใช่คำวินิจฉัยทางการแพทย์ หากมีอาการรุนแรงโปรดพบแพทย์เฉพาะทาง</p>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-rose-300/60 text-center">
+        <p>© 2026 MindReset Space. จัดทำขึ้นเพื่อการศึกษาด้วยเครื่องมือ Generative AI</p>
+        <p class="text-rose-300/60">เว็บไซต์นี้ให้คำแนะนำเบื้องต้น ไม่สามารถทดแทนการวินิจฉัยทางการแพทย์โดยตรง</p>
       </div>
 
     </div>
   </footer>
 
   <!-- Floating Back to Top Button -->
-  <button id="backToTop" aria-label="กลับสู่ด้านบน" class="fixed bottom-6 right-6 z-40 p-3.5 rounded-2xl bg-sage-700/90 hover:bg-sage-600 text-white shadow-xl backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none transform translate-y-4 hover:scale-110">
+  <button id="backToTop" aria-label="กลับขึ้นข้างบน" class="fixed bottom-6 right-6 z-40 p-3.5 rounded-2xl bg-rose-500/90 hover:bg-rose-600 text-white shadow-soft-rose-lg backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none transform translate-y-4 hover:scale-110 active:scale-95 border border-white/30">
     <i class="fa-solid fa-arrow-up text-sm"></i>
   </button>
 
-  <!-- Interactive Scripts -->
+  <!-- Interactive Scripts (UI/UX Pro Max Engine) -->
   <script>
+    // Toast Notification System
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+      }, 2500);
+    }
+
+    // Copy Hotline 1323
+    const copyHotlineBtn = document.getElementById('copyHotlineBtn');
+    if (copyHotlineBtn) {
+      copyHotlineBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText('1323').then(() => {
+          showToast('คัดลอกเบอร์ 1323 เรียบร้อยแล้ว');
+        }).catch(() => {
+          showToast('กดโทร 1323 ได้ทันที');
+        });
+      });
+    }
+
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
@@ -829,6 +1145,203 @@
     }, observerOptions);
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ==========================================
+    // INTERACTIVE BURNOUT QUICK CHECK LOGIC
+    // ==========================================
+    const q1 = document.getElementById('q1');
+    const q2 = document.getElementById('q2');
+    const q3 = document.getElementById('q3');
+    const q1Val = document.getElementById('q1Val');
+    const q2Val = document.getElementById('q2Val');
+    const q3Val = document.getElementById('q3Val');
+    const quizResultTitle = document.getElementById('quizResultTitle');
+    const quizResultDesc = document.getElementById('quizResultDesc');
+
+    const labels = ['น้อยมาก (0/4)', 'เล็กน้อย (1/4)', 'ปานกลาง (2/4)', 'ค่อนข้างมาก (3/4)', 'สูงสุด (4/4)'];
+
+    function updateQuiz() {
+      const v1 = parseInt(q1.value);
+      const v2 = parseInt(q2.value);
+      const v3 = parseInt(q3.value);
+      q1Val.textContent = labels[v1];
+      q2Val.textContent = labels[v2];
+      q3Val.textContent = labels[v3];
+
+      const total = v1 + v2 + v3; // 0 - 12
+      if (total <= 3) {
+        quizResultTitle.innerHTML = '<i class=\"fa-solid fa-seedling text-emerald-500\"></i> <span class=\"text-emerald-700\">ระดับพลังงาน: สมดุลใจแข็งแรงดี (Healthy Balance)</span>';
+        quizResultDesc.textContent = 'คุณยังรักษาสมดุลชีวิตได้ยอดเยี่ยม หมั่นพักสายตาทุก 50 นาที และรักษาเวลาการนอนหลับให้คงที่อย่างต่อเนื่อง';
+      } else if (total <= 7) {
+        quizResultTitle.innerHTML = '<i class=\"fa-solid fa-battery-half text-peach-500\"></i> <span class=\"text-rose-700\">ระดับพลังงาน: เริ่มมีความเหนื่อยล้าสะสม (Moderate Fatigue)</span>';
+        quizResultDesc.textContent = 'ใจคุณกำลังส่งสัญญาณบอกให้ชะลอความเร็ว แนะนำให้ใช้กฎตัดขาดหน้าจอ 20 นาที และพูดคุยกับพี่หมอใจดีเพื่อรับคำแนะนำเฉพาะตัว';
+      } else {
+        quizResultTitle.innerHTML = '<i class=\"fa-solid fa-triangle-exclamation text-rose-600\"></i> <span class=\"text-rose-800\">ระดับพลังงาน: เสี่ยงเข้าสู่ภาวะ Burnout ขั้นสูง (High Risk)</span>';
+        quizResultDesc.textContent = 'สัญญาณเตือนชัดเจน ร่างกายและสมองต้องการการพักผ่อนจริงจัง ควรปรึกษาพี่หมอใจดี หรือโทรสายด่วน 1323 เพื่อรับคำแนะนำโดยเร็ว';
+      }
+    }
+
+    [q1, q2, q3].forEach(input => input.addEventListener('input', updateQuiz));
+
+    // ==========================================
+    // MINDFUL BREATHING 4-7-8 ENGINE
+    // ==========================================
+    const breatheRing = document.getElementById('breatheRing');
+    const breatheOrb = document.getElementById('breatheOrb');
+    const breatheText = document.getElementById('breatheText');
+    const breatheTimer = document.getElementById('breatheTimer');
+    const breatheHint = document.getElementById('breatheHint');
+    const breatheToggleBtn = document.getElementById('breatheToggleBtn');
+    const breatheResetBtn = document.getElementById('breatheResetBtn');
+    const breathePlayIcon = document.getElementById('breathePlayIcon');
+    const breatheBtnText = document.getElementById('breatheBtnText');
+
+    let isBreathing = false;
+    let breathInterval = null;
+    let breathStep = 0; // 0: Inhale (4s), 1: Hold (7s), 2: Exhale (8s)
+    let countdown = 4;
+
+    function tickBreath() {
+      countdown--;
+      breatheTimer.textContent = countdown + 's';
+
+      if (countdown <= 0) {
+        breathStep = (breathStep + 1) % 3;
+        if (breathStep === 0) {
+          // Inhale
+          countdown = 4;
+          breatheText.textContent = 'หายใจเข้า';
+          breatheTimer.textContent = '4s';
+          breatheHint.textContent = 'สูดลมหายใจช้าๆ ทางจมูก';
+          breatheOrb.className = 'relative z-10 w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-rose-400 via-rose-300 to-peach-300 text-white flex flex-col items-center justify-center shadow-soft-rose-xl breathe-circle breathe-inhale border-4 border-white/90';
+          breatheRing.className = 'absolute inset-0 rounded-full bg-gradient-to-tr from-rose-200 via-peach-200 to-rose-300 opacity-70 filter blur-lg breathe-circle breathe-inhale';
+        } else if (breathStep === 1) {
+          // Hold
+          countdown = 7;
+          breatheText.textContent = 'กลั้นหายใจ';
+          breatheTimer.textContent = '7s';
+          breatheHint.textContent = 'รักษาสมาธิอย่างผ่อนคลาย';
+          breatheOrb.className = 'relative z-10 w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-peach-400 via-peach-300 to-rose-300 text-white flex flex-col items-center justify-center shadow-soft-peach-lg breathe-circle breathe-hold border-4 border-white/90';
+          breatheRing.className = 'absolute inset-0 rounded-full bg-gradient-to-tr from-peach-200 via-rose-200 to-peach-300 opacity-70 filter blur-lg breathe-circle breathe-hold';
+        } else {
+          // Exhale
+          countdown = 8;
+          breatheText.textContent = 'หายใจออก';
+          breatheTimer.textContent = '8s';
+          breatheHint.textContent = 'ปล่อยลมหายใจออกทางปาก';
+          breatheOrb.className = 'relative z-10 w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-rose-500 via-rose-400 to-rose-300 text-white flex flex-col items-center justify-center shadow-soft-rose breathe-circle breathe-exhale border-4 border-white/80';
+          breatheRing.className = 'absolute inset-0 rounded-full bg-gradient-to-tr from-rose-200 via-peach-200 to-rose-300 opacity-50 filter blur-md breathe-circle breathe-exhale';
+        }
+      }
+    }
+
+    function startBreathing() {
+      isBreathing = true;
+      breathePlayIcon.className = 'fa-solid fa-pause';
+      breatheBtnText.textContent = 'พักการฝึก';
+      breathStep = 0;
+      countdown = 4;
+      breatheText.textContent = 'หายใจเข้า';
+      breatheTimer.textContent = '4s';
+      breatheHint.textContent = 'สูดลมหายใจช้าๆ ทางจมูก';
+      breatheOrb.className = 'relative z-10 w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-rose-400 via-rose-300 to-peach-300 text-white flex flex-col items-center justify-center shadow-soft-rose-xl breathe-circle breathe-inhale border-4 border-white/90';
+      breatheRing.className = 'absolute inset-0 rounded-full bg-gradient-to-tr from-rose-200 via-peach-200 to-rose-300 opacity-70 filter blur-lg breathe-circle breathe-inhale';
+      breathInterval = setInterval(tickBreath, 1000);
+    }
+
+    function stopBreathing() {
+      isBreathing = false;
+      clearInterval(breathInterval);
+      breathePlayIcon.className = 'fa-solid fa-play';
+      breatheBtnText.textContent = 'เริ่มฝึกหายใจต่อ';
+    }
+
+    function resetBreathing() {
+      stopBreathing();
+      breathStep = 0;
+      countdown = 4;
+      breatheText.textContent = 'กดเริ่ม';
+      breatheTimer.textContent = '4-7-8';
+      breatheHint.textContent = 'คลายความกังวล';
+      breatheBtnText.textContent = 'เริ่มฝึกหายใจ (1 นาที)';
+      breatheOrb.className = 'relative z-10 w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-rose-400 via-rose-300 to-peach-300 text-white flex flex-col items-center justify-center shadow-soft-rose-xl breathe-circle breathe-exhale border-4 border-white/80';
+      breatheRing.className = 'absolute inset-0 rounded-full bg-gradient-to-tr from-rose-200 via-peach-200 to-rose-300 opacity-60 filter blur-md breathe-circle breathe-exhale';
+    }
+
+    breatheToggleBtn.addEventListener('click', () => {
+      if (isBreathing) {
+        stopBreathing();
+      } else {
+        startBreathing();
+      }
+    });
+
+    breatheResetBtn.addEventListener('click', resetBreathing);
+
+    // ==========================================
+    // WEB AUDIO API SOOTHING AMBIENT HARMONIC CHORD
+    // ==========================================
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let ambientNodes = [];
+
+    const ambientSoundBtn = document.getElementById('ambientSoundBtn');
+    const ambientSoundIcon = document.getElementById('ambientSoundIcon');
+
+    function toggleAmbientSound() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      if (isAudioPlaying) {
+        // Stop audio
+        ambientNodes.forEach(node => {
+          try { node.stop(); } catch(e){}
+        });
+        ambientNodes = [];
+        isAudioPlaying = false;
+        ambientSoundIcon.className = 'fa-solid fa-volume-xmark text-sm';
+        showToast('ปิดเสียงบรรยากาศแล้ว');
+      } else {
+        // Start soft calming binaural/wellness chord (F# major calming chord 185Hz, 277Hz, 370Hz)
+        const freqs = [185.0, 277.18, 369.99];
+        ambientNodes = [];
+
+        const masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.04, audioCtx.currentTime); // gentle volume
+        masterGain.connect(audioCtx.destination);
+
+        freqs.forEach(freq => {
+          const osc = audioCtx.createOscillator();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+          // Subtle slow vibrato for wave sensation
+          const lfo = audioCtx.createOscillator();
+          lfo.frequency.setValueAtTime(0.15, audioCtx.currentTime);
+          const lfoGain = audioCtx.createGain();
+          lfoGain.gain.setValueAtTime(1.2, audioCtx.currentTime);
+          lfo.connect(lfoGain);
+          lfoGain.connect(osc.frequency);
+
+          osc.connect(masterGain);
+          osc.start();
+          lfo.start();
+          ambientNodes.push(osc, lfo);
+        });
+
+        isAudioPlaying = true;
+        ambientSoundIcon.className = 'fa-solid fa-volume-high text-sm text-rose-500 animate-pulse';
+        showToast('เปิดเสียงคลื่นสงบ (432Hz Ambient)');
+      }
+    }
+
+    ambientSoundBtn.addEventListener('click', toggleAmbientSound);
   </script>
 </body>
 </html>
